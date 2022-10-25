@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <!--Menu Icon & Title-->
   <header>
     <section class="menu-hash">
       <div></div>
@@ -16,9 +17,8 @@
       <div></div>
     </section>
     <h1 id="title">WHAT ARE WE CRAVING TODAY?</h1>
-
-    <section class="menu-tab">
-      <hr style="width: 25%; float: left;"><br>|!- Remove Later, Menu Tab Separator --| <br><hr style="width: 25%; float: left;"><br>
+    <!--Popup Section for when the Menu icon is clicked-->
+    <section class="menu-tab"></section>
       <nav>
         <ul>
           <li id="link-search-recipe">Search Recipe</li>
@@ -31,16 +31,15 @@
   </header>
 
     <main>
+      <!--start up page when user first enter the website w/ title, section for random recipe list and images-->
       <form id="beginning-page">
         <h2>Today's Special</h2>
         <section id="random-image"></section>
         <section id="random-recipe"></section>
       </form>
 
-      <br>
-      <hr style="text-align: center;"> /-- Remove later, each page separator --/ <hr>
-      <br>
 
+      <!--Section for when user is searching for food recipe-->
       <form id="recipe-page">
         <input id="search-recipe" type="input" placeholder="Search Food or Ingredients......."/>
         <button id="submit-button-recipe">Search</button>
@@ -53,10 +52,7 @@
         <section id="recipe-instruction">Recipe Instructions</section>
       </form>
 
-      <br>
-      <hr style="text-align: center;"> /-- Remove later, each page separator --/ <hr>
-      <br>
-
+      <!--Section for when the user is searching for restaurants-->
       <form id="restaurant-page">
         <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
         <button id="submit-button-restaurant">Search</button>
@@ -66,11 +62,11 @@
           <button id="official-website-button">Official Website</button>
         </section>
       </form>
-
     </main>
 
+    <!--Footer tag: Made by Food Fighters-->
     <footer>
-      <h3>Made by Group Project 🤩</h3>
+      <h3>Made by Food Fighters 🤩</h3>
     </footer>
   <script type="text/javascript" src="assets/js/script.js"></script>
 </body>

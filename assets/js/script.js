@@ -59,14 +59,18 @@ function renderOneRecipePage(data) {
     restaurantBtn.type = "button";
     restaurantBtn.textContent = "Restaurant";
     recipeEl.appendChild(restaurantBtn);
-    restaurantBtn.addEventListener("click", show_restaurant(mealName));
+    restaurantBtn.addEventListener("click", function() {
+        show_restaurant(mealName)
+    });
 
     // add [Watch Tutorial] button
     let watchTutorialBtn = document.createElement("button");
     watchTutorialBtn.type = "button";
     watchTutorialBtn.textContent = "Watch Tutorial";
     recipeEl.appendChild(watchTutorialBtn);
-    watchTutorialBtn.addEventListener("click", watchVideo(videoUrl));
+    watchTutorialBtn.addEventListener("click", function() {
+        watchVideo(videoUrl)
+    });
 }
 
 

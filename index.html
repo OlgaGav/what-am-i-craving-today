@@ -4,35 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      div {
-        width: 40px;
-        height: 5px;
-        background-color: black;
-        margin: 8px 0;
-      }
-    </style>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>What are we craving today?</title>
 </head>
 
 <body>
   <header>
-    <section class="menu-hash" style="padding-left: 10px; padding-top:10px">
+    <section class="menu-hash">
       <div></div>
       <div></div>
       <div></div>
     </section>
-    <h1 id="title" style="text-align:center;">WHAT ARE WE CRAVING TODAY?</h1>
+    <h1 id="title">WHAT ARE WE CRAVING TODAY?</h1>
+
     <section class="menu-tab">
-
       <hr style="width: 25%; float: left;"><br>|!- Remove Later, Menu Tab Separator --| <br><hr style="width: 25%; float: left;"><br>
-
       <nav>
         <ul>
-          <li>Seach Recipe</li>
-          <li>Search Restaurant</li>
-          <hr style="width: 10%; float: left;"><br>
+          <li id="link-search-recipe">Search Recipe</li>
+          <li id="link-search-restaurant">Search Restaurant</li>
+          <hr><br>
           <li>All Rights Reserved ©</li>
         </ul>
       </nav>
@@ -40,46 +31,46 @@
   </header>
 
     <main>
-      <form class="beginning-page">
-        <h2 style="text-align: center;">Today's Special</h2>
-        <section style="text-align: center;">Random Image</section>
-        <section style="text-align: center;">Random Recipe</section>
+      <form id="beginning-page">
+        <h2>Today's Special</h2>
+        <section id="random-image"></section>
+        <section id="random-recipe"></section>
       </form>
 
       <br>
       <hr style="text-align: center;"> /-- Remove later, each page separator --/ <hr>
       <br>
 
-      <form class="recipe-page">
-        <input type="input" placeholder="Search Food or Ingredients......."/>
-        <button>Search</button>
-        <button>Clear</button>
-        <section>Food List</section>
-        <section>Food Recipe
-          <button>Restaurant</button>
-          <button>Watch Tutorial</button>
+      <form id="recipe-page">
+        <input id="search-recipe" type="input" placeholder="Search Food or Ingredients......."/>
+        <button id="submit-button-recipe">Search</button>
+        <button id="clear-button-recipe">Clear</button>
+        <section id="food-list">Food List</section>
+        <section id="food-recipe">Food Recipe
+          <button id="restaurant-search-button">Restaurant</button>
+          <button id="watch-tutorial-button">Watch Tutorial</button>
         </section>
-        <section>Food Instructions</section>
+        <section id="recipe-instruction">Recipe Instructions</section>
       </form>
 
       <br>
       <hr style="text-align: center;"> /-- Remove later, each page separator --/ <hr>
       <br>
 
-      <form class="restaurant-page">
-        <input type="input" placeholder="Search Nearby Restaurants......." />
-        <button>Search</button>
-        <button>Clear</button>
-        <section>Restaurants List</section>
-        <section>Restaurant Information
-          <button>Official Website</button>
+      <form id="restaurant-page">
+        <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
+        <button id="submit-button-restaurant">Search</button>
+        <button id="clear-button-restaurant">Clear</button>
+        <section id="restaurant-list">Restaurants List</section>
+        <section id="restaurant-information">Restaurant Information
+          <button id="official-website-button">Official Website</button>
         </section>
       </form>
 
     </main>
 
     <footer>
-      <h3 style="text-align: center;">Made by Group Project 🤩</h3>
+      <h3>Made by Group Project 🤩</h3>
     </footer>
   <script type="text/javascript" src="assets/js/script.js"></script>
 </body>

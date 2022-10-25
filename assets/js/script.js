@@ -79,3 +79,31 @@ function show_restaurant(mealName) {
     // let data = getRestaurantResults(keyWord);
     // renderResturantPage(data);
 }
+
+function getRestaurantResults(searchValue) {
+
+}
+
+function getRecipeById(idMeal) {
+
+}
+
+function getRecipeByName(userInput) {
+
+}
+
+function getRecipeByMainIngridient(userInput) {
+
+}
+
+function renderMultipleViewReciePage(arrayOfMeals) {
+
+}
+
+function oneOfMultiple(recipeObject) {
+    
+}
+
+function renderResturantPage(data) {
+
+}

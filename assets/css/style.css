@@ -1,5 +1,10 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
+/* Google font format */
+.css-selector {
+    font-family: 'Font Name', serif;
+    }
+
 div {
     width: 40px;
     height: 5px;
@@ -14,6 +19,7 @@ div {
 
 #title {
     text-align: center;
+    background-color: rgb(243, 205,162);
 }
 
 .menu-tab {
@@ -22,6 +28,7 @@ div {
 
 h2 {
     text-align: center;
+    justify-content: center;
 }
 
 section {
@@ -34,4 +41,21 @@ section {
 
 h3 {
     text-align: center;
+    background: "./assets/"
+}
+
+#random-image, #random-recipe {
+    background-color: rgb(252,230,162);
+    width: 30%;
+    justify-content: center;
+}
+
+#todaySpecial {
+    background-color: rgb(253,242,208);
+    height: 50px;
+    width: 200px;
+    border-style: dashed;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
 }

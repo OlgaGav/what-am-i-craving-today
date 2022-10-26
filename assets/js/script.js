@@ -102,6 +102,7 @@ function renderResturantPage(data) {
 
 }
 
+
 let menuIcon = document.querySelector(".menu-hash");
 let menuTab = document.querySelector(".menu-tab");
 let menuTabRecipe = document.querySelector("#link-search-recipe");
@@ -126,7 +127,6 @@ function openMenuTab () {
 function recipeSearchContent () {
     document. getElementById("recipe-page").style.display = "block";
     document. getElementById("beginning-page").style.display = "none";
-    document. getElementById("link-random-page").style.display = "block";
     menuTab.style.display = "none";
 }
 
@@ -134,14 +134,14 @@ function restaurantSearchContent () {
     document.getElementById("restaurant-page").style.display = "block";
     document.getElementById("recipe-page").style.display = "none";
     document.getElementById("beginning-page").style.display = "none";
-    document. getElementById("link-random-page").style.display = "none";
     document. getElementById("link-random-page").style.display = "block";
     menuTab.style.display = "none";
 }
 
 function generateRandomRecipe () {
     document. getElementById("beginning-page").style.display = "block";
-    document. getElementById("link-random-page").style.display = "none";
     document. getElementById("recipe-page").style.display = "none";
     window.location.reload(true);
 }
+
+

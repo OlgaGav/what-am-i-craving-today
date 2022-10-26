@@ -4,9 +4,7 @@
     margin: 0;
     padding: 0;
 }
-body {
-    background-image: linear-gradient(rgb(237, 171, 47), beige);
-}
+
 div {
     width: 40px;
     height: 5px;
@@ -17,7 +15,6 @@ div {
 header {
     border-bottom-style: solid;
     text-align: center;
-    background-image: linear-gradient(rgb(237, 171, 47), beige);
 }
 
 .menu-hash {
@@ -114,7 +111,7 @@ li {
 }
 
 #link-random-page {
-    display: none;
+    display: block;
 }
 
 #beginning-page {

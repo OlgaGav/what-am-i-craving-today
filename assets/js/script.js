@@ -50,24 +50,14 @@ function renderOneRecipePage(data) {
         recipeIngredientsEl.appendChild(ingredientEl);
     })
 
-    // add <hr>
-    let separatorEl = document.createElement("hr");
-    recipeEl.appendChild(separatorEl);
-
-    // add [Restaurant] button with eventListener. On click search restaurant with keyword equal meal name
-    let restaurantBtn = document.createElement("button");
-    restaurantBtn.type = "button";
-    restaurantBtn.textContent = "Restaurant";
-    recipeEl.appendChild(restaurantBtn);
+    // add eventListener for [Restaurant] button with eventListener. On click search restaurant with keyword equal meal name
+    let restaurantBtn = document.getElementById("restaurant-search-button");
     restaurantBtn.addEventListener("click", function() {
         show_restaurant(mealName)
     });
 
-    // add [Watch Tutorial] button
-    let watchTutorialBtn = document.createElement("button");
-    watchTutorialBtn.type = "button";
-    watchTutorialBtn.textContent = "Watch Tutorial";
-    recipeEl.appendChild(watchTutorialBtn);
+    // adding eventListener for [Watch Tutorial] button
+    let watchTutorialBtn = document.getElementById("watch-tutorial-button");
     watchTutorialBtn.addEventListener("click", function() {
         watchVideo(videoUrl)
     });

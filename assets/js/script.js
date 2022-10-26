@@ -113,12 +113,14 @@ menuTabRecipe.addEventListener("click", recipeSearchContent);
 menuTabRestaurant.addEventListener("click", restaurantSearchContent);
 menuRandomRecipe.addEventListener("click", generateRandomRecipe);
 
+
 function openMenuTab () {
     if(menuTab.style.display === "none") {
         menuTab.style.display = "block";
     } else {
         menuTab.style.display = "none";
     }
+
 }
 
 function recipeSearchContent () {

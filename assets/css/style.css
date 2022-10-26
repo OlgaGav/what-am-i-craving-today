@@ -4,6 +4,9 @@
     margin: 0;
     padding: 0;
 }
+body {
+    background-image: linear-gradient(rgb(237, 171, 47), beige);
+}
 div {
     width: 40px;
     height: 5px;
@@ -65,7 +68,7 @@ transition: 0.5s;
     left: 0;
     border: solid;
     padding-right: 25px;
-    width: 25%;
+    width: 28%;
     height: 100%;
     background-image: linear-gradient(rgb(237, 171, 47), beige);
     
@@ -83,8 +86,8 @@ hr.classic-style {
 a {
     display: block;
     padding: 15px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 21px;
+    font-family: Apple Chancery, cursive;
+    font-size: 23px;
     font-style: italic;
 }
 
@@ -95,7 +98,15 @@ a:hover {
 #menu {
     padding-left: 20px;
     padding-top: 10px;
-    font-size: 21px;
+    font-size: 30px;
+    font-family: Apple Chancery, cursive;
+}
+
+#menu1 {
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 15px;
+    font-style: italic;
 }
 
 li {

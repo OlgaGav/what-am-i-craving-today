@@ -50,10 +50,6 @@ function renderOneRecipePage(data) {
         recipeIngredientsEl.appendChild(ingredientEl);
     })
 
-    // add <hr>
-    let separatorEl = document.createElement("hr");
-    recipeEl.appendChild(separatorEl);
-
     // add eventListener for [Restaurant] button with eventListener. On click search restaurant with keyword equal meal name
     let restaurantBtn = document.getElementById("restaurant-search-button");
     restaurantBtn.addEventListener("click", function() {

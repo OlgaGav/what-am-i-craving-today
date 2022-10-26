@@ -32,15 +32,18 @@
 
     <main>
       <!--start up page when user first enter the website w/ title, section for random recipe list and images-->
-      <form id="beginning-page">
+      <section id="beginning-page">
         <h2>Today's Special</h2>
         <section id="random-image"></section>
-        <section id="random-recipe"></section>
-      </form>
+        <section id="random-recipe">
+          <button id="restaurant-search-button">Restaurant</button>
+          <button id="watch-tutorial-button">Watch Tutorial</button>
+        </section>
+      </section>
 
 
       <!--Section for when user is searching for food recipe-->
-      <form id="recipe-page">
+      <section id="recipe-page">
         <input id="search-recipe" type="input" placeholder="Search Food or Ingredients......."/>
         <button id="submit-button-recipe">Search</button>
         <button id="clear-button-recipe">Clear</button>
@@ -53,7 +56,7 @@
       </form>
 
       <!--Section for when the user is searching for restaurants-->
-      <form id="restaurant-page">
+      <section id="restaurant-page">
         <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
         <button id="submit-button-restaurant">Search</button>
         <button id="clear-button-restaurant">Clear</button>
@@ -61,7 +64,7 @@
         <section id="restaurant-information">Restaurant Information
           <button id="official-website-button">Official Website</button>
         </section>
-      </form>
+      </section>
     </main>
 
     <!--Footer tag: Made by Food Fighters-->

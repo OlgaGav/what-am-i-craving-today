@@ -1,0 +1,37 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+div {
+    width: 40px;
+    height: 5px;
+    background-color: black;
+    margin: 8px 0;
+  }
+
+.menu-hash {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#title {
+    text-align: center;
+}
+
+.menu-tab {
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+}
+
+section {
+    text-align: center;
+}
+
+.recipe-page {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}

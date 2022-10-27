@@ -1,11 +1,17 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+body {
+    background: url(/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/image_processing20191001-28305-gdm0ip.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
 
-div {
+#hash {
     width: 40px;
     height: 5px;
     background-color: black;
@@ -29,15 +35,16 @@ header {
 
 .menu-hash:before,
 .menu-hash::after,
-.menu-hash div {
-display: none;
-background:black;
-content: "";
-display: block;
-height: 4px;
-margin: 6.2px 0;
-transition: 0.5s;
+    .menu-hash #hash {
+    display: none;
+    background:black;
+    content: "";
+    display: block;
+    height: 4px;
+    margin: 6.2px 0;
+    transition: 0.5s;
 }
+
 .menu-hash:hover:before {
     transform: translateY(-3px) rotate(-135deg);
     background-image: linear-gradient(to right, rgb(237, 171, 47), black);
@@ -48,7 +55,7 @@ transition: 0.5s;
     background-image: linear-gradient(to right, rgb(237, 171, 47), green);
 }
 
-.menu-hash:hover div {
+.menu-hash:hover #hash {
     transform: scale(0);
 }
 
@@ -78,6 +85,16 @@ hr.classic-style {
     background-position: center;
     background-color: transparent;
     background-size: cover;
+}
+
+hr.classic-style1 {
+    border: 0;
+    height: 40px;
+    background-image:  url(/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/menu-separator.PNG);
+    background-position: center;
+    background-color: transparent;
+    background-repeat: no-repeat ;
+
 }
 
 a {
@@ -115,7 +132,47 @@ li {
 }
 
 #beginning-page {
+    display: inline-block;
+}
+
+#random-image {
     display: block;
+    float: left;
+    width: 50%;
+    height: 100%;
+    padding: 25px;
+    background-color: rgb(243,205,162);
+}
+
+img {
+    width: 100%;
+    height: 75%;
+}
+
+.recipe-container {
+    display: block;
+    float: left;
+    text-align: center;
+    background-color: bisque;
+    width: 50%;
+}
+
+#random-recipe {
+    display: inline-block;
+    width: 75%;
+    height: 400px;
+    padding-top: 25px;
+    overflow: auto;
+    font-size: 20px;
+    font-family: fantasy;
+}
+
+#restaurant-search-button {
+    font-size: 20px;
+}
+
+#watch-tutorial-button {
+    font-size: 20px;
 }
 
 h2 {
@@ -133,4 +190,38 @@ h2 {
 
 h3 {
     text-align: center;
+}
+
+#title {
+    background-color: rgb(243,205,162);
+    font-style: italic;
+}
+
+#todayspecial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(253,242,208);
+    width: 45%;
+    height: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px 15px 0 0; 
+    border-style: dashed;
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.swal-overlay {
+    background:linear-gradient(rgb(237, 171, 47), beige);
+}
+
+.swal-modal {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.swal-image {
+    width: 100%;
 }

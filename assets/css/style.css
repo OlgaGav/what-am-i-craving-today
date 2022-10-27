@@ -1,4 +1,9 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 div {
     width: 40px;
@@ -7,29 +12,123 @@ div {
     margin: 8px 0;
   }
 
+header {
+    border-bottom-style: solid;
+    text-align: center;
+}
+
 .menu-hash {
-    padding-left: 10px;
-    padding-top: 10px;
+    float:left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.menu-hash:hover {
+    cursor: pointer;
+}
+
+.menu-hash:before,
+.menu-hash::after,
+.menu-hash div {
+display: none;
+background:black;
+content: "";
+display: block;
+height: 4px;
+margin: 6.2px 0;
+transition: 0.5s;
+}
+.menu-hash:hover:before {
+    transform: translateY(-3px) rotate(-135deg);
+    background-image: linear-gradient(to right, rgb(237, 171, 47), black);
+}
+
+.menu-hash:hover:after {
+    transform: translateY(3px) rotate(135deg);
+    background-image: linear-gradient(to right, rgb(237, 171, 47), green);
+}
+
+.menu-hash:hover div {
+    transform: scale(0);
 }
 
 #title {
     text-align: center;
+    font-size: 25px;
+    padding: 1%;
 }
 
 .menu-tab {
-    text-align: left;
+    display: none;
+    position:absolute;
+    top: 5;
+    left: 0;
+    border: solid;
+    padding-right: 25px;
+    width: 28%;
+    height: 100%;
+    background-image: linear-gradient(rgb(237, 171, 47), beige);
+    
+}
+
+hr.classic-style {
+    border: 0;
+    height: 20px;
+    background-image:  url(/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/menu-separator.PNG);
+    background-position: center;
+    background-color: transparent;
+    background-size: cover;
+}
+
+a {
+    display: block;
+    padding: 15px;
+    font-family: Apple Chancery, cursive;
+    font-size: 23px;
+    font-style: italic;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#menu {
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 30px;
+    font-family: Apple Chancery, cursive;
+}
+
+#menu1 {
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 15px;
+    font-style: italic;
+}
+
+li {
+    text-align: center;
+}
+
+#link-random-page {
+    display: block;
+}
+
+#beginning-page {
+    display: block;
 }
 
 h2 {
     text-align: center;
 }
 
-section {
+#recipe-page {
+    display: none;
     text-align: center;
 }
 
-.recipe-page {
-    text-align: center;
+#restaurant-page {
+    display: none;
 }
 
 h3 {

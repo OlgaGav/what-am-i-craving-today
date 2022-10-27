@@ -33,6 +33,8 @@ searchRestaurantBtn.addEventListener('click', function() {
     userSearchValue.trim();
     if (userSearchValue.length>0){
       getRestaurantsByUserLocation(userSearchValue);
+    }
+})
 
 // Recipe Search page: event listener if user wants to pres enter after input
 searchRecipeInput.addEventListener("keypress", function(event) {

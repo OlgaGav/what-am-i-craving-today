@@ -14,6 +14,8 @@ let foodRecipeEl = document.getElementById("food-recipe");
 let recipeInstructionEl = document.getElementById("recipe-instruction");
 let recipePageWatchTutorialBtn = document.getElementById("watch-tutorial-button1");
 let recipePageRestaurantBtn = document.getElementById("restaurant-search-button1");
+let restaurantInfoEl = document.getElementById("restaurant-information");
+let restaurantWebBtn = document.getElementById("official-website-button");
 
 //on page load random recipe is displayed by default
 getRandomRecipe(randomReceipeUrl);
@@ -145,6 +147,10 @@ function show_restaurant(mealName) {
     // renderResturantPage(data);
 }
 
+function websiteOpenUrl(url) {
+    window.open(url, '_blank');
+}
+
 
 
 function getRestaurantsByUserLocation(searchValue) {
@@ -154,6 +160,7 @@ function getRestaurantsByUserLocation(searchValue) {
         latitude: pos.coords.latitude,
         longitude: pos.coords.longitude
       }
+      console.log(userPosition);
       getRestaurantsWithParameters(searchValue, userPosition);
       });
     } else { 
@@ -167,7 +174,8 @@ function getRestaurantsWithParameters(searchValue, userPosition) {
     let lat=userPosition.latitude;
     let lon=userPosition.longitude;
     let searchUrl = restaurantBaseUrl+"&term="+searchValue+"&latitude="+lat+"&longitude="+lon;
-    
+    console.log(searchUrl);
+
     const options = {
         method: 'GET',
         headers: {
@@ -182,10 +190,7 @@ function getRestaurantsWithParameters(searchValue, userPosition) {
     
     fetch(searchUrl, options)
         .then(response => response.json())
-        .then(data => {
-            renderResturantPage(data.businesses);
-        })
-        .catch(err => console.error(err));
+        .then(data => renderRestaurantPage(data.business))
 }
 
 // function call API to get recipe deatils and render results on the right hand side pane
@@ -298,7 +303,47 @@ function renderRecipe(recipeData) {
      });
 }
 
-function renderResturantPage(data) {
+function renderRestaurantPage(restaurantData) {
+    restaurantInfoEl.innerHTML = "";
+    let restaurantAddressArray = [];
+    let restaurantName = restaurantData.name;
+    let restaurantImg = restaurantData.image_url;
+    let restaurantAddress = restaurantData.location.display_address;
+    let restaurantMethod = restaurantData.transactions;
+    let restaurantRatings = restaurantData.rating;
+    let restaurantPhone = restaurantData.display_phone;
+    let restaurantUrl = restaurantData.url;
+
+    console.log(restaurantData);
+
+    let restaurantImageEl = document.createElement("img");
+    restaurantImageEl.src = restaurantImg;
+    restaurantImageEl.setAttribute("alt", "image of "+ restaurantName);
+    restaurantInfoEl.appendChild(restaurantImageEl);
+
+    let restaurantNameEl = document.createElement('h4');
+    restaurantNameEl.textContent =restaurantName;
+    restaurantInfoEl.appendChild(restaurantNameEl);
+
+    let restaurantAddressEl = document.createElement('p');
+    restaurantAddressEl.textContent = restaurantAddress;
+    restaurantInfoEl.appendChild(restaurantAddressEl);
+
+    let restaurantRatingsEl = document.createElement('p');
+    restaurantRatingsEl.textContent = restaurantRatings + " " + "⭐️";
+    restaurantInfoEl.appendChild(restaurantRatingsEl);
+
+    let restaurantMethodEl = document.createElement('p');
+    restaurantMethodEl.textContent = restaurantMethod;
+    restaurantInfoEl.appendChild(restaurantMethodEl);
+
+    let restaurantPhoneEl = document.createElement('p');
+    restaurantPhoneEl.textContent = restaurantPhone;
+    restaurantInfoEl.appendChild(restaurantPhoneEl);
+
+    restaurantWebBtn.addEventListener("click", () => {
+    websiteOpenUrl(restaurantUrl);
+    })
 
 }
 
@@ -325,42 +370,27 @@ function openMenuTab () {
 }
 
 function recipeSearchContent () {
-    const imageUrl = "/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/loader.gif";
-    swal({
-        icon: imageUrl,
-        buttons: false,
-        timer: 3000
-    }).then (() => {
+   
     document. getElementById("recipe-page").style.display = "block";
     document. getElementById("beginning-page").style.display = "none";
+    document.getElementById("restaurant-page").style.display = "none";
     menuTab.style.display = "none";
-    })
+
 }
 
 function restaurantSearchContent () {
-    const imageUrl = "/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/Yx9l.gif";
-    swal({
-        icon: imageUrl,
-        buttons: false,
-        timer: 3000
-    }).then (() => {
+
     document.getElementById("restaurant-page").style.display = "block";
     document.getElementById("recipe-page").style.display = "none";
     document.getElementById("beginning-page").style.display = "none";
     document. getElementById("link-random-page").style.display = "block";
     menuTab.style.display = "none";
-    })
+    
 }
 
 function generateRandomRecipe () {
-    const imageUrl = "/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/output-onlinegiftools.gif";
-    swal({
-        icon: imageUrl,
-        buttons: false,
-        timer: 3000
-    }).then (() => {
+    
     document. getElementById("beginning-page").style.display = "block";
     document. getElementById("recipe-page").style.display = "none";
     window.location.reload(true);
-    })
 }

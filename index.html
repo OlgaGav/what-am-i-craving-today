@@ -15,7 +15,7 @@
   <header>
     <h1 id="title">WHAT ARE WE CRAVING TODAY?
     <section class="menu-hash">
-      <div></div>
+      <div id="hash"></div>
     </section>
     </h1>
   </header>
@@ -42,8 +42,10 @@
       <section id="beginning-page">
         <h2 id="todayspecial">Today's Special</h2>
         <section id="random-image"></section>
-        <div>
+        <div class="recipe-container">
+          <hr class="classic-style1">
           <section id="random-recipe"></section>
+          <hr class="classic-style1">
           <button id="restaurant-search-button">Restaurant</button>
           <button id="watch-tutorial-button">Watch Tutorial</button>
         </div>
@@ -57,7 +59,7 @@
         <button id="submit-button-recipe">Search</button>
         <button id="clear-button-recipe">Clear</button>
         <section id="food-list"></section>
-        <div>
+        <div class="random-recipe-content">
           <section id="food-recipe"></section>
           <button id="restaurant-search-button1">Restaurant</button>
           <button id="watch-tutorial-button1">Watch Tutorial</button>
@@ -82,6 +84,7 @@
     <footer>
       <h3>Made by Food Fighters 🤩</h3>
     </footer>
-  <script type="text/javascript" src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>

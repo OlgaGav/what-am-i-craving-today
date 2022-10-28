@@ -14,6 +14,16 @@ let foodRecipeEl = document.getElementById("food-recipe");
 let recipeInstructionEl = document.getElementById("recipe-instruction");
 let recipePageWatchTutorialBtn = document.getElementById("watch-tutorial-button1");
 let recipePageRestaurantBtn = document.getElementById("restaurant-search-button1");
+let recipeClearInputBtn = document.getElementById("clear-button-recipe");
+let restaurantClearInputBtn = document.getElementById("clear-button-restaurant");
+
+//edit event listener to input search field
+recipeClearInputBtn.addEventListener("click", function(){
+    searchRecipeInput.value = "";
+})
+restaurantClearInputBtn.addEventListener("click", function(){
+    searchRestaurantInput.value = "";
+})
 
 //on page load random recipe is displayed by default
 getRandomRecipe(randomReceipeUrl);

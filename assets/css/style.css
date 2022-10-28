@@ -7,7 +7,7 @@
 }
 
 body {
-    background: url("../assets/images/image_processing20191001-28305-gdm0ip.gif");
+    background: url(../images/background-image.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: bisque;
@@ -73,7 +73,7 @@ header {
     top: 5;
     left: 0;
     border: solid;
-    padding-right: 25px;
+    padding-right: 5em;
     width: 28%;
     height: 100%;
     background-image: linear-gradient(rgb(237, 171, 47), beige);
@@ -82,7 +82,7 @@ header {
 
 hr.classic-style {
     border: 0;
-    height: 20px;
+    height: 4em;
     background-image:  url(../images/menu-separator.PNG);
     background-position: center;
     background-color: transparent;
@@ -91,7 +91,7 @@ hr.classic-style {
 
 hr.classic-style1 {
     border: 0;
-    height: 40px;
+    height: 8em;
     background-image: url(../images/menu-separator.PNG);
     background-position: center;
     background-color: transparent;
@@ -101,9 +101,9 @@ hr.classic-style1 {
 
 a {
     display: block;
-    padding: 15px;
+    padding: 3em;
     font-family: Apple Chancery, cursive;
-    font-size: 23px;
+    font-size: 4.6em;
     font-style: italic;
 }
 
@@ -222,9 +222,9 @@ footer h3 {
     height: 65px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 15px 15px 0 0; 
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border-radius: 3em 3em 0 0; 
     border-style: dashed;
     font-size: 25px;
     font-family: cursive;
@@ -242,10 +242,3 @@ footer h3 {
     width: 100%;
 }
 
-body {
-background-image: url("../images/background-image.png");
-background-repeat: no-repeat;
-background-size: contain;
-height: 100vh;
-background-attachment: fixed;
-}

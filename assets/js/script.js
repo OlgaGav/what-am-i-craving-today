@@ -16,6 +16,7 @@ let recipePageWatchTutorialBtn = document.getElementById("watch-tutorial-button1
 let recipePageRestaurantBtn = document.getElementById("restaurant-search-button1");
 let restaurantInfoEl = document.getElementById("restaurant-information");
 let restaurantWebBtn = document.getElementById("official-website-button");
+let restaurantList = document.getElementById("restaurant-list");
 
 //on page load random recipe is displayed by default
 getRandomRecipe(randomReceipeUrl);
@@ -190,7 +191,10 @@ function getRestaurantsWithParameters(searchValue, userPosition) {
     
     fetch(searchUrl, options)
         .then(response => response.json())
-        .then(data => renderRestaurantPage(data.business))
+        .then(data => {
+            renderRestaurantPage(data.businesses);
+        })
+        .catch(error => console.log(error));
 }
 
 // function call API to get recipe deatils and render results on the right hand side pane
@@ -303,18 +307,32 @@ function renderRecipe(recipeData) {
      });
 }
 
-function renderRestaurantPage(restaurantData) {
-    restaurantInfoEl.innerHTML = "";
-    let restaurantAddressArray = [];
-    let restaurantName = restaurantData.name;
-    let restaurantImg = restaurantData.image_url;
-    let restaurantAddress = restaurantData.location.display_address;
-    let restaurantMethod = restaurantData.transactions;
-    let restaurantRatings = restaurantData.rating;
-    let restaurantPhone = restaurantData.display_phone;
-    let restaurantUrl = restaurantData.url;
+function renderRestaurantList (data) {
+    restaurantList.innerHTML = "";
+    let restaurantListEl = document.createElement("ul");
+    restaurantList.appendChild(restaurantListEl);
+    for(let i=0; i < data.length; i++) {
+    console.log(data[i]);
+    let restaurantListLi = document.createElement("li");
+    restaurantListLi.textContent = data[i].name;
+    restaurantListEl.appendChild(restaurantListLi);
+    restaurantListLi.className = "is-clickable";
+    restaurantListLi.onclick = () => renderRestaurant(data[i]);
+    }
+    
+}
 
-    console.log(restaurantData);
+function renderRestaurant(selectRestaurantData) {
+    restaurantInfoEl.innerHTML = "";
+    let restaurantName = selectRestaurantData.name;
+    let restaurantImg = selectRestaurantData.image_url;
+    let restaurantAddress = selectRestaurantData.location.display_address;
+    let restaurantMethod = selectRestaurantData.transactions;
+    let restaurantRatings = selectRestaurantData.rating;
+    let restaurantPhone = selectRestaurantData.display_phone;
+    let restaurantUrl = selectRestaurantData.url;
+
+    console.log(selectRestaurantData);
 
     let restaurantImageEl = document.createElement("img");
     restaurantImageEl.src = restaurantImg;
@@ -334,7 +352,7 @@ function renderRestaurantPage(restaurantData) {
     restaurantInfoEl.appendChild(restaurantRatingsEl);
 
     let restaurantMethodEl = document.createElement('p');
-    restaurantMethodEl.textContent = restaurantMethod;
+    restaurantMethodEl.textContent = "Type of Service:" + " " + restaurantMethod;
     restaurantInfoEl.appendChild(restaurantMethodEl);
 
     let restaurantPhoneEl = document.createElement('p');
@@ -344,6 +362,50 @@ function renderRestaurantPage(restaurantData) {
     restaurantWebBtn.addEventListener("click", () => {
     websiteOpenUrl(restaurantUrl);
     })
+}
+
+function renderRestaurantPage(restaurantData) {
+    restaurantInfoEl.innerHTML = "";
+    // let restaurantAddressArray = [];
+    // let restaurantName = restaurantData.name;
+    // let restaurantImg = restaurantData.image_url;
+    // let restaurantAddress = restaurantData.location;
+    // let restaurantMethod = restaurantData.transactions;
+    // let restaurantRatings = restaurantData.rating;
+    // let restaurantPhone = restaurantData.display_phone;
+    // let restaurantUrl = restaurantData.url;
+    renderRestaurantList(restaurantData);
+
+    console.log(restaurantData);
+
+    // let restaurantImageEl = document.createElement("img");
+    // restaurantImageEl.src = restaurantImg;
+    // restaurantImageEl.setAttribute("alt", "image of "+ restaurantName);
+    // restaurantInfoEl.appendChild(restaurantImageEl);
+
+    // let restaurantNameEl = document.createElement('h4');
+    // restaurantNameEl.textContent =restaurantName;
+    // restaurantInfoEl.appendChild(restaurantNameEl);
+
+    // let restaurantAddressEl = document.createElement('p');
+    // restaurantAddressEl.textContent = restaurantAddress;
+    // restaurantInfoEl.appendChild(restaurantAddressEl);
+
+    // let restaurantRatingsEl = document.createElement('p');
+    // restaurantRatingsEl.textContent = restaurantRatings + " " + "⭐️";
+    // restaurantInfoEl.appendChild(restaurantRatingsEl);
+
+    // let restaurantMethodEl = document.createElement('p');
+    // restaurantMethodEl.textContent = "Type of Service:" + " " + restaurantMethod;
+    // restaurantInfoEl.appendChild(restaurantMethodEl);
+
+    // let restaurantPhoneEl = document.createElement('p');
+    // restaurantPhoneEl.textContent = restaurantPhone;
+    // restaurantInfoEl.appendChild(restaurantPhoneEl);
+
+    // restaurantWebBtn.addEventListener("click", () => {
+    // websiteOpenUrl(restaurantUrl);
+    // })
 
 }
 

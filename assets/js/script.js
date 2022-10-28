@@ -307,12 +307,12 @@ function renderRecipe(recipeData) {
      });
 }
 
+// Displays restaurants list w/ clickable content.
 function renderRestaurantList (data) {
     restaurantList.innerHTML = "";
     let restaurantListEl = document.createElement("ul");
     restaurantList.appendChild(restaurantListEl);
     for(let i=0; i < data.length; i++) {
-    console.log(data[i]);
     let restaurantListLi = document.createElement("li");
     restaurantListLi.textContent = data[i].name;
     restaurantListEl.appendChild(restaurantListLi);
@@ -322,6 +322,7 @@ function renderRestaurantList (data) {
     
 }
 
+// Displays restaurants information w/ image, name, address, ratings, service options, and phone number
 function renderRestaurant(selectRestaurantData) {
     restaurantInfoEl.innerHTML = "";
     let restaurantName = selectRestaurantData.name;
@@ -332,7 +333,6 @@ function renderRestaurant(selectRestaurantData) {
     let restaurantPhone = selectRestaurantData.display_phone;
     let restaurantUrl = selectRestaurantData.url;
 
-    console.log(selectRestaurantData);
 
     let restaurantImageEl = document.createElement("img");
     restaurantImageEl.src = restaurantImg;
@@ -359,6 +359,7 @@ function renderRestaurant(selectRestaurantData) {
     restaurantPhoneEl.textContent = restaurantPhone;
     restaurantInfoEl.appendChild(restaurantPhoneEl);
 
+    //add event listener when official website button is clicked, will take user to restaurants official website.
     restaurantWebBtn.addEventListener("click", () => {
     websiteOpenUrl(restaurantUrl);
     })
@@ -366,50 +367,12 @@ function renderRestaurant(selectRestaurantData) {
 
 function renderRestaurantPage(restaurantData) {
     restaurantInfoEl.innerHTML = "";
-    // let restaurantAddressArray = [];
-    // let restaurantName = restaurantData.name;
-    // let restaurantImg = restaurantData.image_url;
-    // let restaurantAddress = restaurantData.location;
-    // let restaurantMethod = restaurantData.transactions;
-    // let restaurantRatings = restaurantData.rating;
-    // let restaurantPhone = restaurantData.display_phone;
-    // let restaurantUrl = restaurantData.url;
+
     renderRestaurantList(restaurantData);
-
-    console.log(restaurantData);
-
-    // let restaurantImageEl = document.createElement("img");
-    // restaurantImageEl.src = restaurantImg;
-    // restaurantImageEl.setAttribute("alt", "image of "+ restaurantName);
-    // restaurantInfoEl.appendChild(restaurantImageEl);
-
-    // let restaurantNameEl = document.createElement('h4');
-    // restaurantNameEl.textContent =restaurantName;
-    // restaurantInfoEl.appendChild(restaurantNameEl);
-
-    // let restaurantAddressEl = document.createElement('p');
-    // restaurantAddressEl.textContent = restaurantAddress;
-    // restaurantInfoEl.appendChild(restaurantAddressEl);
-
-    // let restaurantRatingsEl = document.createElement('p');
-    // restaurantRatingsEl.textContent = restaurantRatings + " " + "⭐️";
-    // restaurantInfoEl.appendChild(restaurantRatingsEl);
-
-    // let restaurantMethodEl = document.createElement('p');
-    // restaurantMethodEl.textContent = "Type of Service:" + " " + restaurantMethod;
-    // restaurantInfoEl.appendChild(restaurantMethodEl);
-
-    // let restaurantPhoneEl = document.createElement('p');
-    // restaurantPhoneEl.textContent = restaurantPhone;
-    // restaurantInfoEl.appendChild(restaurantPhoneEl);
-
-    // restaurantWebBtn.addEventListener("click", () => {
-    // websiteOpenUrl(restaurantUrl);
-    // })
 
 }
 
-
+//menu tab  functions
 let menuIcon = document.querySelector(".menu-hash");
 let menuTab = document.querySelector(".menu-tab");
 let menuTabRecipe = document.querySelector("#link-search-recipe");
@@ -431,6 +394,7 @@ function openMenuTab () {
 
 }
 
+//add function when "search recipe" is click, will take user to recipe page.
 function recipeSearchContent () {
    
     document. getElementById("recipe-page").style.display = "block";
@@ -440,6 +404,7 @@ function recipeSearchContent () {
 
 }
 
+//add function when "search restaurant" is click, will take user to restaurant page.
 function restaurantSearchContent () {
 
     document.getElementById("restaurant-page").style.display = "block";
@@ -450,6 +415,7 @@ function restaurantSearchContent () {
     
 }
 
+//add function when "random recipe" is click, will take user to main page and display random recipe.
 function generateRandomRecipe () {
     
     document. getElementById("beginning-page").style.display = "block";

@@ -27,9 +27,8 @@ body {
     background-color: bisque;
 } 
 
-footer h3 {
+h3 {
     text-align: center;
-    background-color: bisque;
     padding: 2em;
 }
 
@@ -123,15 +122,11 @@ li {
     width: 80%;
     height: 100%;
     background-color: bisque;
-    display: inline;
 }
 
 #D1, #D2, #D3 {
-    display: inline;
-    float: left;
     text-align: center;
     background-color: bisque;
-    width: 33%;
     padding: 1em;
 }
 
@@ -187,9 +182,6 @@ li {
 
 #random-image {
     display: block;
-    float: left;
-    width: 400px;
-    height: 400px;
     border-style: solid;
     border-color: rgb(243,205,162);
     background-color: bisque;
@@ -198,14 +190,12 @@ li {
 
 #random-recipe {
     display: inline-block;
-    width: 40%;
-    overflow: auto;
-    font-size: 20px;
+    font-size: 15px;
     font-family: fantasy;
 }
 
 #restaurant-search-button {
-    font-size: 20px;
+    font-size: 10px;
 }
 
 #recipe-page {
@@ -220,7 +210,6 @@ li {
 #title {
     text-align: center;
     font-size: 25px;
-    padding: 1%;
     background-color: rgb(243,205,162);
     font-style: italic;
 }
@@ -243,6 +232,6 @@ li {
 }
 
 #watch-tutorial-button {
-    font-size: 20px;
+    font-size: 10px;
 }
 

@@ -66,7 +66,7 @@ header {
     top: 5;
     left: 0;
     border: solid;
-    padding-right: 25px;
+    padding-right: 5em;
     width: 28%;
     height: 100%;
     background-image: linear-gradient(rgb(237, 171, 47), beige);
@@ -75,8 +75,8 @@ header {
 
 hr.classic-style {
     border: 0;
-    height: 20px;
-    background-image:  url(/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/menu-separator.PNG);
+    height: 4em;
+    background-image:  url(../images/menu-separator.PNG);
     background-position: center;
     background-color: transparent;
     background-size: cover;
@@ -84,8 +84,8 @@ hr.classic-style {
 
 hr.classic-style1 {
     border: 0;
-    height: 40px;
-    background-image:  url(/Users/jp/bootcamp/group-projects/what-am-i-craving-today/assets/images/menu-separator.PNG);
+    height: 8em;
+    background-image: url(../images/menu-separator.PNG);
     background-position: center;
     background-color: transparent;
     background-repeat: no-repeat ;
@@ -94,9 +94,9 @@ hr.classic-style1 {
 
 a {
     display: block;
-    padding: 15px;
+    padding: 3em;
     font-family: Apple Chancery, cursive;
-    font-size: 23px;
+    font-size: 4.6em;
     font-style: italic;
 }
 
@@ -126,6 +126,12 @@ li {
     display: block;
 }
 
+#link-search-recipe,
+#link-search-restaurant,
+#link-random-page {
+    color: black;
+}
+
 #beginning-page {
     display: inline-block;
 }
@@ -135,8 +141,10 @@ li {
     float: left;
     width: 50%;
     height: 100%;
-    padding: 25px;
-    background-color: rgb(243,205,162);
+    border-style: solid;
+    border-color: rgb(243,205,162);
+    border-width: 2em;
+    background-color: bisque;
 }
 
 img {
@@ -150,13 +158,17 @@ img {
     text-align: center;
     background-color: bisque;
     width: 50%;
+    padding-bottom: 1em;
+}
+
+#random-instruction {
+    background-color: bisque;
+    padding: 0em 7em 2em 7em;
 }
 
 #random-recipe {
     display: inline-block;
     width: 75%;
-    height: 400px;
-    padding-top: 25px;
     overflow: auto;
     font-size: 20px;
     font-family: fantasy;
@@ -183,8 +195,10 @@ h2 {
     display: none;
 }
 
-h3 {
+footer h3 {
     text-align: center;
+    background-color: bisque;
+    padding: 2em;
 }
 
 #title {
@@ -201,9 +215,9 @@ h3 {
     height: 65px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 15px 15px 0 0; 
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border-radius: 3em 3em 0 0; 
     border-style: dashed;
     font-size: 25px;
     font-family: cursive;
@@ -220,3 +234,4 @@ h3 {
 .swal-image {
     width: 100%;
 }
+

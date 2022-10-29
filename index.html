@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
     <title>What are we craving today?</title>
 </head>
 
@@ -41,17 +45,22 @@
       <!--start up page when user first enter the website w/ title, section for random recipe list and images-->
       <section id="beginning-page">
         <h2 id="todayspecial">Today's Special</h2>
-        <section id="random-image"></section>
-        <div class="recipe-container">
-          <hr class="classic-style1">
-          <section id="random-recipe"></section>
-          <hr class="classic-style1">
-          <button id="restaurant-search-button" class="button is-warning">Restaurant</button>
-          <button id="watch-tutorial-button" class="button is-warning">Watch Tutorial</button>
+        <div id="D0" class="row">
+          <div class="col s12">
+            <div id="D1" class="col s7">
+              <figure id="random-image" class="responsive-img"></figure>
+              <button id="restaurant-search-button" class="waves-effect waves-light btn-small">Restaurant</button>
+              <button id="watch-tutorial-button" class="waves-effect waves-light btn-small">Watch Tutorial</button>
+              <hr class="classic-style1">
+              <section id="random-recipe"></section>
+              <hr class="classic-style1">
+            </div>
+            <div id="D3" class="col s5">
+              <section id="random-instruction">random instruction</section>
+            </div>
+          </div>
         </div>
-        <section id="random-instruction"></section>
       </section>
-
 
       <!--Section for when user is searching for food recipe-->
       <section id="recipe-page">
@@ -81,11 +90,12 @@
     </main>
 
     <!--Footer tag: Made by Food Fighters-->
-    <footer>
+    <footer class="page-footer">
       <h3>Made by Food Fighters 🤩</h3>
     </footer>
 
     <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
 
   </body>
 </html>

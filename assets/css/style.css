@@ -6,15 +6,66 @@
     padding: 0;
 }
 
-#hash {
-    width: 40px;
-    height: 5px;
-    background-color: black;
-    margin: 8px 0;
-  }
+a {
+    display: block;
+    padding-left: 1em;
+    font-family: Apple Chancery, cursive;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center; 
+    justify-content: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    background: url(../images/background-image.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: bisque;
+} 
+
+h3 {
+    text-align: center;
+    padding: 2em;
+}
+
+h2 {
+    text-align: center;
+}
 
 header {
     border-bottom-style: solid;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: 75%;
+}
+
+hr.classic-style {
+    border: 0;
+    height: 4em;
+    background-image:  url(../images/menu-separator.PNG);
+    background-position: center;
+    background-color: transparent;
+    background-size: cover;
+}
+
+hr.classic-style1 {
+    border: 0;
+    height: 8em;
+    background-image: url(../images/menu-separator.PNG);
+    background-position: center;
+    background-color: transparent;
+    background-repeat: no-repeat ;
+
+}
+
+li {
     text-align: center;
 }
 
@@ -30,7 +81,7 @@ header {
 
 .menu-hash:before,
 .menu-hash::after,
-    .menu-hash #hash {
+.menu-hash div {
     display: none;
     background:black;
     content: "";
@@ -54,54 +105,65 @@ header {
     transform: scale(0);
 }
 
-#title {
-    text-align: center;
-    font-size: 25px;
-    padding: 1%;
-}
-
 .menu-tab {
     display: none;
     position:absolute;
     top: 5;
     left: 0;
     border: solid;
-    padding-right: 5em;
+    padding-right: 25px;
     width: 28%;
     height: 100%;
     background-image: linear-gradient(rgb(237, 171, 47), beige);
     
 }
 
-hr.classic-style {
-    border: 0;
-    height: 4em;
-    background-image:  url(../images/menu-separator.PNG);
-    background-position: center;
-    background-color: transparent;
-    background-size: cover;
+#D0 {
+    width: 80%;
+    height: 100%;
+    background-color: bisque;
 }
 
-hr.classic-style1 {
-    border: 0;
-    height: 8em;
-    background-image: url(../images/menu-separator.PNG);
-    background-position: center;
-    background-color: transparent;
-    background-repeat: no-repeat ;
-
+#D1, #D2, #D3 {
+    text-align: center;
+    background-color: bisque;
+    padding: 1em;
 }
 
-a {
-    display: block;
-    padding: 3em;
-    font-family: Apple Chancery, cursive;
-    font-size: 4.6em;
-    font-style: italic;
+.swal-overlay {
+    background:linear-gradient(rgb(237, 171, 47), beige);
 }
 
-a:hover {
-    text-decoration: underline;
+.swal-modal {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.swal-image {
+    width: 100%;
+}
+
+/* 이건 모니터 해봐야함 */
+#link-random-page,
+#beginning-page { 
+    display: inline-block;
+}
+
+#hash {
+    width: 40px;
+    height: 5px;
+    background-color: black;
+    margin: 8px 0;
+}
+
+#link-search-recipe,
+#link-search-restaurant,
+#link-random-page {
+    color: black;
+    font: 10px;
+}
+
+#main-container {
+    height: 700px;
 }
 
 #menu {
@@ -118,72 +180,22 @@ a:hover {
     font-style: italic;
 }
 
-li {
-    text-align: center;
-}
-
-#link-random-page {
-    display: block;
-}
-
-#link-search-recipe,
-#link-search-restaurant,
-#link-random-page {
-    color: black;
-}
-
-#beginning-page {
-    display: inline-block;
-}
-
 #random-image {
     display: block;
-    float: left;
-    width: 50%;
-    height: 100%;
     border-style: solid;
     border-color: rgb(243,205,162);
-    border-width: 2em;
     background-color: bisque;
 }
 
-img {
-    width: 100%;
-    height: 75%;
-}
-
-.recipe-container {
-    display: block;
-    float: left;
-    text-align: center;
-    background-color: bisque;
-    width: 50%;
-    padding-bottom: 1em;
-}
-
-#random-instruction {
-    background-color: bisque;
-    padding: 0em 7em 2em 7em;
-}
 
 #random-recipe {
     display: inline-block;
-    width: 75%;
-    overflow: auto;
-    font-size: 20px;
+    font-size: 15px;
     font-family: fantasy;
 }
 
 #restaurant-search-button {
-    font-size: 20px;
-}
-
-#watch-tutorial-button {
-    font-size: 20px;
-}
-
-h2 {
-    text-align: center;
+    font-size: 10px;
 }
 
 #recipe-page {
@@ -195,13 +207,9 @@ h2 {
     display: none;
 }
 
-footer h3 {
-    text-align: center;
-    background-color: bisque;
-    padding: 2em;
-}
-
 #title {
+    text-align: center;
+    font-size: 25px;
     background-color: rgb(243,205,162);
     font-style: italic;
 }
@@ -215,23 +223,15 @@ footer h3 {
     height: 65px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3em;
-    margin-bottom: 3em;
-    border-radius: 3em 3em 0 0; 
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 2em 2em 0 0; 
     border-style: dashed;
     font-size: 25px;
     font-family: cursive;
 }
 
-.swal-overlay {
-    background:linear-gradient(rgb(237, 171, 47), beige);
-}
-
-.swal-modal {
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.swal-image {
-    width: 100%;
+#watch-tutorial-button {
+    font-size: 10px;
 }
 

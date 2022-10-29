@@ -194,7 +194,7 @@ li {
 }
 
 #random-recipe {
-    display: inline-block;
+    display: inline;
     width: 40%;
     overflow: auto;
     font-size: 20px;

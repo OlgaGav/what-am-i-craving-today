@@ -119,13 +119,20 @@ li {
     
 }
 
-.recipe-container {
-    display: block;
+#D0 {
+    width: 80%;
+    height: 100%;
+    background-color: bisque;
+    display: inline;
+}
+
+#D1, #D2, #D3 {
+    display: inline;
     float: left;
     text-align: center;
     background-color: bisque;
-    width: 50%;
-    padding-bottom: 1em;
+    width: 33%;
+    padding: 1em;
 }
 
 .swal-overlay {
@@ -188,10 +195,6 @@ li {
     background-color: bisque;
 }
 
-#random-instruction {
-    background-color: bisque;
-    padding: 0em 7em 2em 7em;
-}
 
 #random-recipe {
     display: inline-block;

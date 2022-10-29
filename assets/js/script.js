@@ -18,6 +18,17 @@ let restaurantInfoEl = document.getElementById("restaurant-information");
 let restaurantWebBtn = document.getElementById("official-website-button");
 let restaurantList = document.getElementById("restaurant-list");
 
+let recipeClearInputBtn = document.getElementById("clear-button-recipe");
+let restaurantClearInputBtn = document.getElementById("clear-button-restaurant");
+
+//edit event listener to input search field
+recipeClearInputBtn.addEventListener("click", function(){
+    searchRecipeInput.value = "";
+})
+restaurantClearInputBtn.addEventListener("click", function(){
+    searchRestaurantInput.value = "";
+})
+
 //on page load random recipe is displayed by default
 getRandomRecipe(randomReceipeUrl);
 

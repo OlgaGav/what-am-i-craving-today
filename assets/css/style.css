@@ -6,13 +6,6 @@
     padding: 0;
 }
 
-body {
-    background: url(../images/background-image.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: bisque;
-} 
-
 #hash {
     width: 40px;
     height: 5px;

@@ -117,8 +117,19 @@ li {
     padding-right: 25px;
     width: 28%;
     height: 100%;
-    background-image: linear-gradient(rgb(237, 171, 47), beige);
-    
+    background-image: linear-gradient(rgb(237, 171, 47), beige);    
+}
+
+.swal-overlay {
+    background:linear-gradient(rgb(237, 171, 47), beige);
+}
+
+.swal-modal {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.swal-image {
+    width: 100%;
 }
 
 #D0 {
@@ -135,21 +146,12 @@ li {
     margin: auto;
 }
 
-.swal-overlay {
-    background:linear-gradient(rgb(237, 171, 47), beige);
-}
-
-.swal-modal {
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.swal-image {
-    width: 100%;
+#food-list {
+    padding: 1rem;
 }
 
 /* 이건 모니터 해봐야함 */
-#link-random-page,
-#beginning-page { 
+#link-random-page-page { 
     display: inline-block;
 }
 
@@ -195,6 +197,15 @@ li {
     font-family: fantasy;
 }
 
+#official-website-button,
+#restaurant-information,
+#clear-button-restaurant,
+#submit-button-restaurant,
+#watch-tutorial-button1,
+#restaurant-search-button1,
+#watch-tutorial-button,
+#submit-button-recipe,
+#clear-button-recipe,
 #restaurant-search-button {
     font-size: 10px;
 }
@@ -202,6 +213,13 @@ li {
 #recipe-page {
     display: none;
     text-align: center;
+    width: 80%;
+    height: 90%;
+    margin: auto;
+}
+
+#restaurant-list {
+    padding: 1rem;
 }
 
 #restaurant-page {
@@ -233,7 +251,5 @@ li {
     font-family: cursive;
 }
 
-#watch-tutorial-button {
-    font-size: 10px;
-}
+
 

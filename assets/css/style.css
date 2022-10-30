@@ -237,3 +237,10 @@ li {
     font-size: 10px;
 }
 
+
+
+/* apply style for list elements on search-restuarant and search-recipe pages*/
+.is-clickable {
+    cursor: pointer !important;
+    pointer-events: all !important;
+  }

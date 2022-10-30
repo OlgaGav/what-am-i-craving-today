@@ -17,7 +17,6 @@ let recipePageRestaurantBtn = document.getElementById("restaurant-search-button1
 let restaurantInfoEl = document.getElementById("restaurant-information");
 let restaurantWebBtn = document.getElementById("official-website-button");
 let restaurantList = document.getElementById("restaurant-list");
-
 let recipeClearInputBtn = document.getElementById("clear-button-recipe");
 let restaurantClearInputBtn = document.getElementById("clear-button-restaurant");
 
@@ -47,6 +46,8 @@ searchRestaurantBtn.addEventListener('click', function() {
     userSearchValue.trim();
     if (userSearchValue.length>0){
       getRestaurantsByUserLocation(userSearchValue);
+      //clear the input field after search
+      searchRestaurantInput.value = "";
     }
 });
 // Recipe Search page: event listener if user wants to pres enter after input
@@ -64,6 +65,8 @@ searchRecipeBtn.addEventListener('click', function() {
     userSearchValue.trim();
     if (userSearchValue.length>0){
       getRecipeByMainIngredient(userSearchValue);
+      //clear the input field after search
+      searchRecipeInput.value = "";
     }
 })
 
@@ -75,7 +78,6 @@ function getRandomRecipe(url) {
 
 // Render 'One Recipe' page, used for randome recipe and when user search by meal name
 function renderRandomRecipePage(data) {
-    console.log(data);
     let mealName = data.strMeal;
     let imageUrl = data.strMealThumb;
     let videoUrl = data.strYoutube;
@@ -83,7 +85,6 @@ function renderRandomRecipePage(data) {
     let ingredientsArray =[];
     let ingredientMeasuresArray =[];
     let instruction = data.strInstructions;
-    console.log(instruction);
 
     for (let i=0; i<20; i++) {
        let value = data["strIngredient"+(i+1)];
@@ -155,15 +156,13 @@ function watchVideo(url) {
 
 // TODO: uncomment to test when search restaurants page will be implemented
 function show_restaurant(mealName) {
-    // let data = getRestaurantResults(keyWord);
-    // renderResturantPage(data);
+    let data = getRestaurantResults(keyWord);
+    renderRestaurantPage(data);
 }
 
 function websiteOpenUrl(url) {
     window.open(url, '_blank');
 }
-
-
 
 function getRestaurantsByUserLocation(searchValue) {
     if (navigator.geolocation) {
@@ -172,7 +171,6 @@ function getRestaurantsByUserLocation(searchValue) {
         latitude: pos.coords.latitude,
         longitude: pos.coords.longitude
       }
-      console.log(userPosition);
       getRestaurantsWithParameters(searchValue, userPosition);
       });
     } else { 
@@ -186,7 +184,6 @@ function getRestaurantsWithParameters(searchValue, userPosition) {
     let lat=userPosition.latitude;
     let lon=userPosition.longitude;
     let searchUrl = restaurantBaseUrl+"&term="+searchValue+"&latitude="+lat+"&longitude="+lon;
-    console.log(searchUrl);
 
     const options = {
         method: 'GET',
@@ -211,7 +208,6 @@ function getRestaurantsWithParameters(searchValue, userPosition) {
 // function call API to get recipe deatils and render results on the right hand side pane
 function getRecipeById(idMeal) {
     let url = baseRecipeUrl+"lookup.php?i="+idMeal;
-    console.log("url",url);
     fetch(url)
     .then(res => res.json())
     .then(data => {
@@ -224,13 +220,13 @@ function getRecipeByName(userInput) {
 
 }
 
-// API call to get data for recipe
+// API call to get data by user input search term
 function getRecipeByMainIngredient(userInput) {
-    let url = baseRecipeUrl+"filter.php?c="+userInput;
-    console.log("search recipes by link ",url);
+    let url = baseRecipeUrl+"filter.php?i="+userInput;
     fetch(url)
-    .then(res => res.json())
-    .then(data => renderMultipleViewRecipePage(data));
+    .then(response => response.json())
+    .then(data => renderMultipleViewRecipePage(data))
+    .catch(e => console.log(e));
 }
 
 // input for this function search results from API of meal recipes by term from user search input
@@ -240,17 +236,15 @@ function renderMultipleViewRecipePage(searchResults) {
     foodList.innerHTML="";
     var foundRecipes = searchResults.meals;
     if (foundRecipes === null) {
-        console.log("no results found");
-        foodList.textContent = "No result found for the search by '' word. Try to search by other ingredient.";
+        foodList.textContent = "No result found. Try another search. Example: noodles, cabbage, chicken, lentils";
         return;
     }
-    console.log(foundRecipes);
     let listRecipesContainer = document.createElement("ul");
     foodList.appendChild(listRecipesContainer);
     for (let i=0; i<foundRecipes.length; i++) {
         let recipeId = foundRecipes[i].idMeal;
         let recipeEl = document.createElement("li");
-        recipeEl.className = "results-item";
+        recipeEl.className = "is-clickable";
         listRecipesContainer.appendChild(recipeEl);
         recipeEl.textContent=foundRecipes[i].strMeal;
         recipeEl.setAttribute("data-idMeal", recipeId);
@@ -262,7 +256,6 @@ function renderMultipleViewRecipePage(searchResults) {
 // this function as input get Object with all recipe properties
 // Function rendering recipe on the right side pane in section with id="food-recipe"
 function renderRecipe(recipeData) {
-    console.log("recipedata: ", recipeData);
     foodRecipeEl.innerHTML = "";
     let recipeName = recipeData.strMeal;
     let recipeIngredientsArray = [];
@@ -330,7 +323,6 @@ function renderRestaurantList (data) {
     restaurantListLi.className = "is-clickable";
     restaurantListLi.onclick = () => renderRestaurant(data[i]);
     }
-    
 }
 
 // Displays restaurants information w/ image, name, address, ratings, service options, and phone number

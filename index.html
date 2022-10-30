@@ -63,27 +63,37 @@
 
       <!--Section for when user is searching for food recipe-->
       <section id="recipe-page">
-        <input id="search-recipe" type="input" placeholder="Search Food or Ingredients......."/>
-        <button id="submit-button-recipe">Search</button>
-        <button id="clear-button-recipe">Clear</button>
-        <section id="food-list"></section>
-        <div class="random-recipe-content">
-          <section id="food-recipe"></section>
-          <button id="restaurant-search-button1" class="button is-warning">Restaurant</button>
-          <button id="watch-tutorial-button1" class="button is-warning">Watch Tutorial</button>
-        </div>
-        <section id="recipe-instruction">Recipe Instructions</section>
+        <h2 id="todayspecial">Search Recipe</h2>
+        <div id="D0" class="row">
+          <div class="input-field col s12">
+            <input id="search-recipe" type="input" class="validate" placeholder="Search Food or Ingredients......."/>
+            <button id="submit-button-recipe" class="waves-effect waves-light btn-small">Search</button>
+            <button id="clear-button-recipe" class="waves-effect waves-light btn-small">Clear</button>
+
+            <section id="food-list"></section>
+          </div>
+          <div class="random-recipe-content">
+            <section id="food-recipe"></section>
+            <button id="restaurant-search-button1" class="waves-effect waves-light btn-small">Restaurant</button>
+            <button id="watch-tutorial-button1" class="waves-effect waves-light btn-small">Watch Tutorial</button>
+          </div>
+          <section id="recipe-instruction"></section>
+          <br>
       </section>
 
       <!--Section for when the user is searching for restaurants-->
       <section id="restaurant-page">
-        <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
-        <button id="submit-button-restaurant">Search</button>
-        <button id="clear-button-restaurant">Clear</button>
-        <section id="restaurant-list"></section>
-        <div>
+        <h2 id="todayspecial">Search Restaurant</h2>
+        <div id="D0" class="row">
+          <div class="input-field col s12">        
+          <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
+          <button id="submit-button-restaurant" class="waves-effect waves-light btn-small">Search</button>
+          <button id="clear-button-restaurant" class="waves-effect waves-light btn-small">Clear</button>
+          
+          <section id="restaurant-list"></section>
+        
           <section id="restaurant-information"></section>
-          <button id="official-website-button">Official Website</button>
+          <button id="official-website-button" class="waves-effect waves-light btn-small">Official Website</button>
         </div>
       </section>
     </main>

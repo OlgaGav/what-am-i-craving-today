@@ -6,9 +6,18 @@ This website contains contains a landing page where we implemented generating ra
 ## Usage
 This Webpage we created is design for everyday user who likes to explore food that they havent tasted before and as well as recreate food with given instruction and recipes. This webpage help everyday user to search for food recipes and how to make it, as well as searching for restaurants locations. We also implemented giving user a choice to generate a random recipe instead for searching for them, giving the experience to try out new food. 
 
+### 'Search Restaurant' page
+
+Current version allow search of restaurants based on the user location, around ~ 2.5 miles (4km). 
+
+**Note:** Getting user physical location comes under user privacy. HTML5 Geolocation API will always grant permission from the user to check geolocation. If a user allows, geolocation will work, else geolocation will be blocked.
+
+![Sceenshot of the notification which request user to allow acess to location.](assets\images\access-location-request-window.png)
+
 ## URL
 
-TBU
+**Deployed application:** https://olgagav.github.io/what-am-i-craving-today/
+**GitHb Respository:** https://github.com/OlgaGav/what-am-i-craving-today
 
 ## Screenshots
 

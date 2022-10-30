@@ -28,6 +28,7 @@ body {
 footer {
     background-color: rgb(243,205,162);
     padding: 20px;
+    text-align: center;
 }
 
 h2, h3 {
@@ -171,7 +172,6 @@ li {
 
 #menu {
     padding-left: 20px;
-    padding-top: 10px;
     font-size: 30px;
     font-family: Apple Chancery, cursive;
 }

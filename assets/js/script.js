@@ -19,6 +19,7 @@ let restaurantWebBtn = document.getElementById("official-website-button");
 let restaurantList = document.getElementById("restaurant-list");
 let recipeClearInputBtn = document.getElementById("clear-button-recipe");
 let restaurantClearInputBtn = document.getElementById("clear-button-restaurant");
+let locationInputEl = document.getElementById("location");
 
 //edit event listener to input search field
 recipeClearInputBtn.addEventListener("click", function(){
@@ -40,11 +41,26 @@ searchRestaurantInput.addEventListener("keypress", function(event) {
     }
   });
 
+locationInputEl.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Trigger the 'Search' button element with a click
+      searchRestaurantBtn.click();
+    }
+  });  
+
 // Restaurant Search page: event listener to show Restaurants when user click [Search] button
 searchRestaurantBtn.addEventListener('click', function() {
     let userSearchValue = searchRestaurantInput.value;
+    let userLocationValue = locationInputEl.value;
     userSearchValue.trim();
-    if (userSearchValue.length>0){
+    userLocationValue.trim();
+    if (userLocationValue.length>0){
+      getRestaurantsByInputLocation(userSearchValue, userLocationValue);
+      //clear the input field after search
+      searchRestaurantInput.value = "";
+      locationInputEl.value = "";
+    } else {
       getRestaurantsByUserLocation(userSearchValue);
       //clear the input field after search
       searchRestaurantInput.value = "";
@@ -156,8 +172,11 @@ function watchVideo(url) {
 
 // TODO: uncomment to test when search restaurants page will be implemented
 function show_restaurant(mealName) {
-    let data = getRestaurantResults(keyWord);
-    renderRestaurantPage(data);
+    restaurantSearchContent();
+    searchRestaurantInput.value = mealName;
+    // disabled automatic search to allow user select Location
+    // let data = getRestaurantsByUserLocation(mealName);
+    // renderRestaurantPage(data);
 }
 
 function websiteOpenUrl(url) {
@@ -167,23 +186,26 @@ function websiteOpenUrl(url) {
 function getRestaurantsByUserLocation(searchValue) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
-      let userPosition = {
-        latitude: pos.coords.latitude,
-        longitude: pos.coords.longitude
-      }
-      getRestaurantsWithParameters(searchValue, userPosition);
+      let lat=pos.coords.latitude;
+      let lon=pos.coords.longitude;
+      let parameters = "&term="+searchValue+"&latitude="+lat+"&longitude="+lon;
+      getRestaurantsWithParameters(parameters);
       });
     } else { 
       console.log("Geolocation is not supported by this browser.");
     }
 }
 
-function getRestaurantsWithParameters(searchValue, userPosition) {
+function getRestaurantsByInputLocation(searchValue, userLocationValue) {
+    let parameters = "&term="+searchValue+"&location="+userLocationValue;
+    getRestaurantsWithParameters(parameters);
+}
+
+function getRestaurantsWithParameters(parameters) {
+    // variables declared in function to limit access outside the function
     const restaurantBaseUrl = "https://http-cors-proxy.p.rapidapi.com/https://api.yelp.com/v3/businesses/search?categories=restaurants&locale=en_US&radius=4000";
     const bearer = 'Bearer YXuzaCORAsgE_YQF8PMgLZRMg_UiY_7DfpnCEhGS3DOcGLNNrDAYk8BnEDAyj62rfOlD9Z5DSlGPFkc-lXFN-8zVtK3j65-x6mlxxc2ua3TnIWOEQvoRUqCelBVXY3Yx';
-    let lat=userPosition.latitude;
-    let lon=userPosition.longitude;
-    let searchUrl = restaurantBaseUrl+"&term="+searchValue+"&latitude="+lat+"&longitude="+lon;
+    let searchUrl = restaurantBaseUrl+parameters;
 
     const options = {
         method: 'GET',
@@ -250,7 +272,6 @@ function renderMultipleViewRecipePage(searchResults) {
         recipeEl.setAttribute("data-idMeal", recipeId);
         recipeEl.onclick = () => getRecipeById(recipeId);
     }
-    foodRecipeEl.textContent = "Select recipe from the list on the left";
 }
 
 // this function as input get Object with all recipe properties
@@ -310,7 +331,7 @@ function renderRecipe(recipeData) {
     })
      // add eventListener for [Restaurant] button with eventListener. On click search restaurant with keyword equal meal name
     recipePageRestaurantBtn.addEventListener("click", function() {
-         show_restaurant(mealName);
+         show_restaurant(recipeName);
      });
 }
 

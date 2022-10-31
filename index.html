@@ -22,45 +22,26 @@
    </h1>
  </header>
 
-
+<!-- Menu Bar -->
     <ul id="slide-out" class="sidenav" style="background-image: linear-gradient(rgb(243,205,162), beige); width: 25%;">
-      <li id="menu">Menu</li>
-      <li><div><img src="./assets/images/menu-separator.PNG" /></div></li>
+      <li id="menu">Menu<i class="material-icons waves-effect sidenav-close" style="float: right;" id="back-btn">close</i></li>
+      <li><div><img src="./assets/images/menu-separator1.png" /></div></li>
       <li><a class="waves-effect sidenav-close" href="#!" id="link-search-recipe">Search Recipe</a></li>
       <li><a class="waves-effect sidenav-close" href="#!" id="link-search-restaurant">Search Restaurant</a></li>
       <li><a class="waves-effect sidenav-close" href="#!" id="link-random-page">Random Recipe</a><br></li>
-      <li><div><img src="./assets/images/menu-separator.PNG" /></div></li>
+      <li><div><img src="./assets/images/menu-separator1.png" /></div></li>
       <li id="menu1">Made by Food Fighters ©</li>
     </ul>
- 
- <!--Popup Section for when the Menu icon is clicked-->
- <!-- <section class="menu-tab" id="slide-out">
-   <nav>
-     <ul>
-       <li id="menu2" style="float: right;">X</li>
-       <li id="menu">Menu</li><br>
-       <hr class="classic-style">
-       <li>
-         <a id="link-search-recipe">Search Recipe</a>
-         <a id="link-search-restaurant">Search Restaurant</a>
-         <a id="link-random-page">Random Recipe</a>
-       </li>
-       <hr class="classic-style">
-       <li id="menu1">Made by Food Fighters</li>
-     </ul>
-   </nav>
- </section> -->
- 
- <section class="previous-searches">
-   <ul>
-     <li id="restaurant-back-button" style="float: right; cursor: pointer; font-family: Apple Chancery, cursive;">X</li>
-     <li id="restaurant-clear-button1" style="padding-top: 10px;" >Restaurant Seach History</li><br>
-     <li id="restaurant-clear-button">Clear History</li>
-     <hr class="classic-style">
-     <section id="previous-restaurant"></section>
-     <hr class="classic-style">
-   </ul>
- </section>
+
+<!-- Previous Restaurant History Bar -->
+    <ul id="slide-out1" class="sidenav" style="background-image: linear-gradient(rgb(243,205,162), beige); width: 25%;">
+      <li id="restaurant-clear-button1" style="padding-top: 10px;" >Restaurant Seach History<i class="material-icons waves-effect sidenav-close" style="float: right;" id="back-btn">close</i></li><br>
+      <li><a class="waves-effect" href="#!" id="restaurant-clear-button">Clear History</a></li>
+      <li><div><img src="./assets/images/menu-separator1.png" /></div></li>
+      <section class="sidenav-close" href="#!" id="previous-restaurant" style="cursor: pointer;"></section>
+      <li><div><img src="./assets/images/menu-separator1.png" /></div></li>
+      <li id="menu1">Made by Food Fighters ©</li>
+    </ul>
  
    <main>
      <!--start up page when user first enter the website w/ title, section for random recipe list and images-->
@@ -113,6 +94,7 @@
          <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
          <button id="submit-button-restaurant" class="waves-effect waves-light btn-small">Search</button>
          <button id="clear-button-restaurant" class="waves-effect waves-light btn-small">Clear</button>
+         <button id="clear-button-restaurant" class="waves-effect waves-light btn-small sidenav-trigger" href="#" data-target="slide-out1">Restaurant Searched History</button>
          <br>
          <p id="location-alert">To find restaurants near by we are gonna ask you for your location, if that is OK with you, press Allow in the dialogue that will pop up in your browser. Otherwise please enter city name below.</p>
          <div class="input-field inline col s6">
@@ -123,7 +105,6 @@
          <section id="restaurant-list"></section>
       
          <section id="restaurant-information"></section>
-         <button id="official-website-button" class="waves-effect waves-light btn-small" style="display:none">Official Website</button>
        </div>
      </section>
    </main>

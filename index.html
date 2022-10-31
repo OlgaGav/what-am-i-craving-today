@@ -74,8 +74,8 @@
           </div>
           <div class="random-recipe-content">
             <section id="food-recipe"></section>
-            <button id="restaurant-search-button1" class="waves-effect waves-light btn-small">Restaurant</button>
-            <button id="watch-tutorial-button1" class="waves-effect waves-light btn-small">Watch Tutorial</button>
+            <button id="restaurant-search-button1" class="waves-effect waves-light btn-small" style="display:none">Restaurant</button>
+            <button id="watch-tutorial-button1" class="waves-effect waves-light btn-small" style="display:none">Watch Tutorial</button>
           </div>
           <section id="recipe-instruction"></section>
           <br>
@@ -89,11 +89,17 @@
           <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
           <button id="submit-button-restaurant" class="waves-effect waves-light btn-small">Search</button>
           <button id="clear-button-restaurant" class="waves-effect waves-light btn-small">Clear</button>
-          
+          <br>
+          <p id="location-alert">To find restaurants near by we are gonna ask you for your location, if that is OK with you, press Allow in the dialogue that will pop up in your browser. Otherwise please enter city name below.</p>
+          <div class="input-field inline col s6">
+            <input id="location" type="text">
+            <label for="location">If you prefer don't allow access to your location, please enter the city name</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Please specify the city to search restaurant</span>
+          </div>
           <section id="restaurant-list"></section>
         
           <section id="restaurant-information"></section>
-          <button id="official-website-button" class="waves-effect waves-light btn-small">Official Website</button>
+          <button id="official-website-button" class="waves-effect waves-light btn-small" style="display:none">Official Website</button>
         </div>
       </section>
     </main>

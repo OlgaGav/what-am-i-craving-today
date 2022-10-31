@@ -298,6 +298,9 @@ function renderRecipe(recipeData) {
     }
     recipeInstructionEl.textContent = recipeInstruction;
 
+    recipePageWatchTutorialBtn.style.display = "inline";
+    recipePageRestaurantBtn.style.display = "inline";
+
     recipePageWatchTutorialBtn.addEventListener('click', () => {
         if (recipeVideoUrl === "") {
             watchVideo(recipeSrcUrl);
@@ -363,6 +366,7 @@ function renderRestaurant(selectRestaurantData) {
     restaurantInfoEl.appendChild(restaurantPhoneEl);
 
     //add event listener when official website button is clicked, will take user to restaurants official website.
+    restaurantWebBtn.style.display = "inline";
     restaurantWebBtn.addEventListener("click", () => {
     websiteOpenUrl(restaurantUrl);
     })

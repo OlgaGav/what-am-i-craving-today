@@ -1,115 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
-    <title>What are we craving today?</title>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+ 
+   <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+   <title>What are we craving today?</title>
 </head>
-
+ 
 <body>
-  <!--Menu Icon & Title-->
-  <header>
-    <p id="title">WHAT ARE WE CRAVING TODAY?
-    <section class="menu-hash">
-      <div id="hash"></div>
-    </section>
-  </p>
-  </header>
-
-  <!--Popup Section for when the Menu icon is clicked-->
-  <section class="menu-tab">
-    <nav>
-      <ul>
-        <li id="menu">Menu</li>
-        <hr class="classic-style">
-        <li>
-          <a id="link-search-recipe">Search Recipe</a>
-          <a id="link-search-restaurant">Search Restaurant</a>
-          <a id="link-random-page">Random Recipe</a>
-        </li>
-        <hr class="classic-style">
-        <li id="menu1">All Right Reserved © </li>
-      </ul>
-    </nav>
-  </section>
-
-    <main>
-      <!--start up page when user first enter the website w/ title, section for random recipe list and images-->
-      <section id="beginning-page">
-        <h2 id="todayspecial">Today's Special</h2>
-        <div id="D0" class="row">
-          <div class="col s12">
-            <div id="D1" class="col s7">
-              <figure id="random-image" class="responsive-img"></figure>
-              <button id="restaurant-search-button" class="waves-effect waves-light btn-small">Restaurant</button>
-              <button id="watch-tutorial-button" class="waves-effect waves-light btn-small">Watch Tutorial</button>
-              <hr class="classic-style1">
-              <section id="random-recipe"></section>
-              <hr class="classic-style1">
-            </div>
-            <div id="D3" class="col s5">
-              <section id="random-instruction">random instruction</section>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--Section for when user is searching for food recipe-->
-      <section id="recipe-page">
-        <h2 id="todayspecial">Search Recipe</h2>
-        <div id="D0" class="row">
-          <div class="input-field col s12">
-            <input id="search-recipe" type="input" class="validate" placeholder="Search Food or Ingredients......."/>
-            <button id="submit-button-recipe" class="waves-effect waves-light btn-small">Search</button>
-            <button id="clear-button-recipe" class="waves-effect waves-light btn-small">Clear</button>
-
-            <section id="food-list"></section>
-          </div>
-          <div class="random-recipe-content">
-            <section id="food-recipe"></section>
-            <button id="restaurant-search-button1" class="waves-effect waves-light btn-small" style="display:none">Restaurant</button>
-            <button id="watch-tutorial-button1" class="waves-effect waves-light btn-small" style="display:none">Watch Tutorial</button>
-          </div>
-          <section id="recipe-instruction"></section>
-          <br>
-      </section>
-
-      <!--Section for when the user is searching for restaurants-->
-      <section id="restaurant-page">
-        <h2 id="todayspecial">Search Restaurant</h2>
-        <div id="D0" class="row">
-          <div class="input-field col s12">        
-          <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
-          <button id="submit-button-restaurant" class="waves-effect waves-light btn-small">Search</button>
-          <button id="clear-button-restaurant" class="waves-effect waves-light btn-small">Clear</button>
-          <br>
-          <p id="location-alert">To find restaurants near by we are gonna ask you for your location, if that is OK with you, press Allow in the dialogue that will pop up in your browser. Otherwise please enter city name below.</p>
-          <div class="input-field inline col s6">
-            <input id="location" type="text">
-            <label for="location">If you prefer don't allow access to your location, please enter the city name</label>
-            <span class="helper-text" data-error="wrong" data-success="right">Please specify the city to search restaurant</span>
-          </div>
-          <section id="restaurant-list"></section>
-        
-          <section id="restaurant-information"></section>
-          <button id="official-website-button" class="waves-effect waves-light btn-small" style="display:none">Official Website</button>
-        </div>
-      </section>
-    </main>
-
-    <!--Footer tag: Made by Food Fighters-->
-    <footer>
-      <p id="footer">Made by Food Fighters 🤩</p>
-    </footer>
-
-    <script type="text/javascript" src="assets/js/script.js"></script>
+ <!--Menu Icon & Title-->
+ <header>
+   <p id="title">WHAT ARE WE CRAVING TODAY?
+   <section class="menu-hash">
+     <div id="hash"></div>
+   </section>
+ </p>
+ </header>
+ 
+ <!--Popup Section for when the Menu icon is clicked-->
+ <section class="menu-tab">
+   <nav>
+     <ul>
+       <li id="menu2" style="float: right;">X</li>
+       <li id="menu">Menu</li><br>
+       <hr class="classic-style">
+       <li>
+         <a id="link-search-recipe">Search Recipe</a>
+         <a id="link-search-restaurant">Search Restaurant</a>
+         <a id="link-random-page">Random Recipe</a>
+       </li>
+       <hr class="classic-style">
+       <li id="menu1">Made by Food Fighters</li>
+     </ul>
+   </nav>
+ </section>
+ 
+ <section class="previous-searches">
+   <ul>
+     <li id="restaurant-back-button" style="float: right; cursor: pointer; font-family: Apple Chancery, cursive;">X</li>
+     <li id="restaurant-clear-button1" style="padding-top: 10px;" >Restaurant Seach History</li><br>
+     <li id="restaurant-clear-button">Clear History</li>
+     <hr class="classic-style">
+     <section id="previous-restaurant"></section>
+     <hr class="classic-style">
+   </ul>
+ </section>
+ 
+   <main>
+     <!--start up page when user first enter the website w/ title, section for random recipe list and images-->
+     <section id="beginning-page">
+       <h2 id="todayspecial">Today's Special</h2>
+       <div id="D0" class="row">
+         <div class="col s12">
+           <div id="D1" class="col s7">
+             <figure id="random-image" class="responsive-img"></figure>
+             <button id="restaurant-search-button" class="waves-effect waves-light btn-small">Restaurant</button>
+             <button id="watch-tutorial-button" class="waves-effect waves-light btn-small">Watch Tutorial</button>
+             <hr class="classic-style1">
+             <section id="random-recipe"></section>
+             <hr class="classic-style1">
+           </div>
+           <div id="D3" class="col s5">
+             <section id="random-instruction">random instruction</section>
+           </div>
+         </div>
+       </div>
+     </section>
+ 
+ 
+ 
+     <!--Section for when user is searching for food recipe-->
+     <section id="recipe-page">
+       <h2 id="todayspecial">Search Recipe</h2>
+       <div id="D0" class="row">
+         <div class="input-field col s12">
+           <input id="search-recipe" type="input" class="validate" placeholder="Search Food or Ingredients......."/>
+           <button id="submit-button-recipe" class="waves-effect waves-light btn-small">Search</button>
+           <button id="clear-button-recipe" class="waves-effect waves-light btn-small">Clear</button>
+ 
+           <section id="food-list"></section>
+         </div>
+         <div class="random-recipe-content">
+           <section id="food-recipe"></section>
+           <button id="restaurant-search-button1" class="waves-effect waves-light btn-small" style="display:none">Restaurant</button>
+           <button id="watch-tutorial-button1" class="waves-effect waves-light btn-small" style="display:none">Watch Tutorial</button>
+         </div>
+         <section id="recipe-instruction"></section>
+         <br>
+     </section>
+ 
+     <!--Section for when the user is searching for restaurants-->
+     <section id="restaurant-page">
+       <h2 id="todayspecial">Search Restaurant</h2>
+       <div id="D0" class="row">
+         <div class="input-field col s12">       
+         <input id="search-restaurants" type="input" placeholder="Search Nearby Restaurants......." />
+         <button id="submit-button-restaurant" class="waves-effect waves-light btn-small">Search</button>
+         <button id="clear-button-restaurant" class="waves-effect waves-light btn-small">Clear</button>
+         <br>
+         <p id="location-alert">To find restaurants near by we are gonna ask you for your location, if that is OK with you, press Allow in the dialogue that will pop up in your browser. Otherwise please enter city name below.</p>
+         <div class="input-field inline col s6">
+           <input id="location" type="text">
+           <label for="location">If you prefer don't allow access to your location, please enter the city name</label>
+           <span class="helper-text" data-error="wrong" data-success="right">Please specify the city to search restaurant</span>
+         </div>
+         <section id="restaurant-list"></section>
+      
+         <section id="restaurant-information"></section>
+         <button id="official-website-button" class="waves-effect waves-light btn-small" style="display:none">Official Website</button>
+       </div>
+     </section>
+   </main>
+ 
+   <!--Footer tag: Made by Food Fighters-->
+   <footer>
+     <h3>Made by Food Fighters 🤩</h3>
+   </footer>
+ 
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
-
-  </body>
+   <script type="text/javascript" src="assets/js/script.js"></script>
+ 
+ </body>
 </html>

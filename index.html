@@ -5,7 +5,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
- 
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css"  media="screen,projection"/>
    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
@@ -15,15 +15,26 @@
 <body>
  <!--Menu Icon & Title-->
  <header>
-   <p id="title">WHAT ARE WE CRAVING TODAY?
-   <section class="menu-hash">
+   <h1 id="title">WHAT ARE WE CRAVING TODAY?
+   <section href="#" data-target="slide-out" class="menu-hash sidenav-trigger">
      <div id="hash"></div>
    </section>
- </p>
+   </h1>
  </header>
+
+
+    <ul id="slide-out" class="sidenav" style="background-image: linear-gradient(rgb(243,205,162), beige); width: 25%;">
+      <li id="menu">Menu</li>
+      <li><div><img src="./assets/images/menu-separator.PNG" /></div></li>
+      <li><a class="waves-effect sidenav-close" href="#!" id="link-search-recipe">Search Recipe</a></li>
+      <li><a class="waves-effect sidenav-close" href="#!" id="link-search-restaurant">Search Restaurant</a></li>
+      <li><a class="waves-effect sidenav-close" href="#!" id="link-random-page">Random Recipe</a><br></li>
+      <li><div><img src="./assets/images/menu-separator.PNG" /></div></li>
+      <li id="menu1">Made by Food Fighters ©</li>
+    </ul>
  
  <!--Popup Section for when the Menu icon is clicked-->
- <section class="menu-tab">
+ <!-- <section class="menu-tab" id="slide-out">
    <nav>
      <ul>
        <li id="menu2" style="float: right;">X</li>
@@ -38,7 +49,7 @@
        <li id="menu1">Made by Food Fighters</li>
      </ul>
    </nav>
- </section>
+ </section> -->
  
  <section class="previous-searches">
    <ul>

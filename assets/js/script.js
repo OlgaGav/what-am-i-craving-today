@@ -417,98 +417,90 @@ function renderRestaurantPage(restaurantData) {
  
 }
  
- 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(elems);
+  }); 
+
 //menu tab  functions
-let menuIcon = document.querySelector(".menu-hash");
-let menuTab = document.querySelector(".menu-tab");
+
 let menuTabRecipe = document.querySelector("#link-search-recipe");
 let menuTabRestaurant = document.querySelector("#link-search-restaurant");
 let menuRandomRecipe = document.querySelector("#link-random-page");
+let slideOut = document.querySelector("#slide-out");
  
-menuIcon.addEventListener("click", openMenuTab);
 menuTabRecipe.addEventListener("click", recipeSearchContent);
 menuTabRestaurant.addEventListener("click", restaurantSearchContent);
 menuRandomRecipe.addEventListener("click", generateRandomRecipe);
  
  
-function openMenuTab () {
-   if(menuTab.style.display === "none") {
-       menuTab.style.display = "block";
-   } else {
-       menuTab.style.display = "none";
-       prevSearches.style.display = "none";
- 
-   }
- 
-}
- 
 //add function when "search recipe" is click, will take user to recipe page.
 function recipeSearchContent () {
-   let imageUrl = "./assets/images/loader.gif";
-   swal({
-       icon: imageUrl,
-       buttons: false,
-       timer: 2500
-   }).then (() => {
-   document. getElementById("recipe-page").style.display = "block";
-   document. getElementById("beginning-page").style.display = "none";
-   document.getElementById("restaurant-page").style.display = "none";
-   menuTab.style.display = "none";
-   });
-}
+    let imageUrl = "./assets/images/loader.gif";
+        swal({
+            icon: imageUrl,
+          buttons: false,
+          timer: 2500
+    }).then (() => {
+    document. getElementById("recipe-page").style.display = "block";
+    document. getElementById("beginning-page").style.display = "none";
+    document.getElementById("restaurant-page").style.display = "none";
+    });
+    var elems = document.querySelectorAll('.sidenav');
+ }
  
 //add function when "search restaurant" is click, will take user to restaurant page.
-function restaurantSearchContent () {
-   let imageUrl = "./assets/images/Yx9l.gif";
-   swal({
-       icon: imageUrl,
-       buttons: false,
-       timer: 2500
-   }).then (() => {
-   document.getElementById("restaurant-page").style.display = "block";
-   document.getElementById("recipe-page").style.display = "none";
-   document.getElementById("beginning-page").style.display = "none";
-   document.getElementById("link-random-page").style.display = "block";
-   menuTab.style.display = "none";
-   })
+ function restaurantSearchContent () {
+    let imageUrl = "./assets/images/Yx9l.gif";
+    swal({
+        icon: imageUrl,
+        buttons: false,
+        timer: 2500
+    }).then (() => {
+    document.getElementById("restaurant-page").style.display = "block";
+    document.getElementById("recipe-page").style.display = "none";
+    document.getElementById("beginning-page").style.display = "none";
+    document.getElementById("link-random-page").style.display = "block";
+    })
   
-}
+ }
  
-//add function when "random recipe" is click, will take user to main page and display random recipe.
-function generateRandomRecipe () {
-   let imageUrl = "./assets/images/random-gift.gif";
-   swal({
-       icon: imageUrl,
-       buttons: false,
-       timer: 3000
-   }).then (() => {
-   document. getElementById("beginning-page").style.display = "block";
-   document. getElementById("recipe-page").style.display = "none";
-   window.location.reload(true);
-   })
-}
+ //add function when "random recipe" is click, will take user to main page and display random recipe.
+ function generateRandomRecipe () {
+    let imageUrl = "./assets/images/random-gift.gif";
+    swal({
+        icon: imageUrl,
+        buttons: false,
+        timer: 3000
+    }).then (() => {
+    document. getElementById("beginning-page").style.display = "block";
+    document. getElementById("recipe-page").style.display = "none";
+    window.location.reload(true);
+    })
+ }
  
  
  
-let goBackBtn = document.querySelector("#restaurant-back-button");
-let goClearBtn = document.querySelector("#restaurant-clear-button");
-let previousRestaurant = document.querySelector("#previous-restaurant");
-let menuClose = document.querySelector("#menu2");
+// let goBackBtn = document.querySelector("#restaurant-back-button");
+// let goClearBtn = document.querySelector("#restaurant-clear-button");
+// let previousRestaurant = document.querySelector("#previous-restaurant");
+// let menuClose = document.querySelector("#menu2");
  
-restaurantClearInputBtn.addEventListener("click", () => {
-   if(prevSearches.style.display === "none"){
-       prevSearches.style.display = "block";
-   } else {
-       prevSearches.style.display = "none";
-   }
-})
+// restaurantClearInputBtn.addEventListener("click", () => {
+//    if(prevSearches.style.display === "none"){
+//        prevSearches.style.display = "block";
+//    } else {
+//        prevSearches.style.display = "none";
+//    }
+// })
  
-goBackBtn.addEventListener("click", () => {
-   menuTab.style.display = "none";
-   prevSearches.style.display = "none"
-})
+// goBackBtn.addEventListener("click", () => {
+//    menuTab.style.display = "none";
+//    prevSearches.style.display = "none"
+// })
  
-menuClose.addEventListener("click", () => {
-   menuTab.style.display = "none";
-   prevSearches.style.display = "none"
-})
+// menuClose.addEventListener("click", () => {
+//    menuTab.style.display = "none";
+//    prevSearches.style.display = "none"
+// })
+

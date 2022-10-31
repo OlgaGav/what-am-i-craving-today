@@ -19,14 +19,12 @@ a:hover {
 }
 
 body {
-    background: url(../images/background-image.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: bisque;
 } 
 
 footer {
-    background-color: rgb(243,205,162);
     padding: 20px;
     text-align: center;
 }
@@ -135,13 +133,15 @@ li {
 #D0 {
     width: 80%;
     height: 90%;
-    background-color: bisque;
+    background-color: #fff8e1;
     margin: auto;
+    border-style: solid;
+    border-color: grey;
 }
 
 #D1, #D2, #D3 {
     text-align: center;
-    background-color: bisque;
+    background-color: #fff8e1;
     padding: 1em;
     margin: auto;
 }
@@ -238,7 +238,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(253,242,208);
+    background-color: #fff8e1;
     width: 45%;
     height: 65px;
     margin-left: auto;

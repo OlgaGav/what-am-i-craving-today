@@ -71,6 +71,10 @@ li {
     text-align: center;
 }
 
+p {
+    font-size: 15px;
+}
+
 .menu-hash {
     float:left;
     padding-left: 5px;
@@ -137,6 +141,7 @@ li {
     margin: auto;
     border-style: solid;
     border-color: grey;
+    justify-content: center;
 }
 
 #D1, #D2, #D3 {
@@ -144,6 +149,7 @@ li {
     background-color: #fff8e1;
     padding: 1em;
     margin: auto;
+    justify-content: center;
 }
 
 #food-list {
@@ -224,6 +230,8 @@ li {
 
 #restaurant-page {
     display: none;
+    justify-content: center;
+    text-align: center;
 }
 
 #title {

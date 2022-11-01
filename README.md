@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Webpage that we have created is designed for an everyday use. this page will be a tool for users who like to explore food that they havent tasted before, and will also allow the user to recreate food with given instruction and recipes. This webpage helps everyday users to search for food recipes and how to make it, as well as searching for restaurants locations. We also implemented giving user a choice to generate a random recipe instead for searching for them, giving the experience to try out new food.
+The Webpage that we have created is designed for an everyday use. this page will be a tool for users who like to explore food that they havent tasted before, and will also allow the user to recreate food with given instructions and recipes. This webpage helps everyday users to search for food recipes and how to make it, as well as searching for restaurants locations. We also implemented giving user a choice to generate a random recipe instead for searching for them, giving the experience to try out new food.
 
 ## Description
 

@@ -13,8 +13,6 @@ let foodList = document.getElementById("food-list");
 let foodImageE = document.getElementById("food-image");
 let foodRecipeEl = document.getElementById("food-recipe");
 let recipeInstructionEl = document.getElementById("recipe-instruction");
-let recipePageWatchTutorialBtn = document.getElementById("watch-tutorial-button1");
-let recipePageRestaurantBtn = document.getElementById("restaurant-search-button1");
 let restaurantInfoEl = document.getElementById("restaurant-information");
 let restaurantList = document.getElementById("restaurant-list");
 let restaurantImage = document.getElementById("restaurant-image");
@@ -25,6 +23,9 @@ let prevRestaurantClear = document.getElementById("restaurant-clear-button");
 let prevSearches = document.querySelector(".previous-searches");
 let previousRestaurant = document.querySelector("#previous-restaurant");
 let savedRestaurants = JSON.parse(localStorage.getItem("data")) || [];
+let historyStartPageEl = document.getElementById("history-start-page");
+let historyRecipePageEl = document.getElementById("history-recipe-page");
+let saveRandomRecipeBtn = document.getElementById("save-recipe-button");
 
 //edit event listener to input search field
 recipeClearInputBtn.addEventListener("click", function(){
@@ -97,7 +98,7 @@ function getRandomRecipe(url) {
     .then(data => renderRandomRecipePage(data.meals[0]));
 }
 
-// Render 'One Recipe' page, used for randome recipe and when user search by meal name
+// Render 'One Recipe' page, used for random recipe and when user search by meal name
 function renderRandomRecipePage(data) {
     let mealName = data.strMeal;
     let imageUrl = data.strMealThumb;
@@ -106,6 +107,12 @@ function renderRandomRecipePage(data) {
     let ingredientsArray =[];
     let ingredientMeasuresArray =[];
     let instruction = data.strInstructions;
+    let currentRecipe = {
+        idMeal: data.idMeal,
+        name: mealName,
+        imageUrl: imageUrl,
+        srcUrl: srcUrl
+    }
 
     for (let i=0; i<20; i++) {
        let value = data["strIngredient"+(i+1)];
@@ -169,13 +176,19 @@ function renderRandomRecipePage(data) {
             watchVideo(srcUrl);
         }
     });
+    
+    saveRandomRecipeBtn.addEventListener("click", function(){
+        addRecipeToLocalStorage(currentRecipe);
+        renderSavedRecipes(historyStartPageEl);    
+    })
+
+    renderSavedRecipes(historyStartPageEl);
 }
 
 function watchVideo(url) {
     window.open(url, '_blank');
 }
 
-// TODO: uncomment to test when search restaurants page will be implemented
 function show_restaurant(mealName) {
     restaurantSearchContent();
     searchRestaurantInput.value = mealName;
@@ -188,6 +201,7 @@ function websiteOpenUrl(url) {
     window.open(url, '_blank');
 }
 
+// function get user's location in latitude and longitude and call function to fetch data with these values as parameter
 function getRestaurantsByUserLocation(searchValue) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
@@ -198,10 +212,10 @@ function getRestaurantsByUserLocation(searchValue) {
       });
     } else  { 
       console.log("Geolocation is not supported by this browser.");
-      
     }
 }
 
+// function called when user provide city as location to search resturants
 function getRestaurantsByInputLocation(searchValue, userLocationValue) {
     let parameters = "&term="+searchValue+"&location="+userLocationValue;
     getRestaurantsWithParameters(parameters);
@@ -278,6 +292,7 @@ function renderMultipleViewRecipePage(searchResults) {
         recipeEl.setAttribute("data-idMeal", recipeId);
         recipeEl.onclick = () => getRecipeById(recipeId);
     }
+    renderSavedRecipes(historyRecipePageEl);
 }
 
 // this function as input get Object with all recipe properties
@@ -287,11 +302,17 @@ function renderRecipe(recipeData) {
     let recipeName = recipeData.strMeal;
     let recipeIngredientsArray = [];
     let recipeIngredientsMeasuresArray = [];
-    let recipeSeparator = "./assets/images/menu-separator1.png";
     let recipeInstruction = recipeData.strInstructions;
     let recipeImageUrl = recipeData.strMealThumb;
     let recipeVideoUrl = recipeData.strYoutube;
     let recipeSrcUrl = recipeData.strSource;
+    let currentRecipe = {
+        idMeal: recipeData.idMeal,
+        name: recipeName,
+        imageUrl: recipeImageUrl,
+        srcUrl: recipeSrcUrl
+    }
+
     for (let i=0; i<20; i++) {
         let value = recipeData["strIngredient"+(i+1)];
          if (!value) {
@@ -307,8 +328,8 @@ function renderRecipe(recipeData) {
          recipeIngredientsMeasuresArray[i] = value;
       }
 
-      let recipeSep1 = document.createElement("img")
-      recipeSep1.src = recipeSeparator;
+      let recipeSep1 = document.createElement("hr");
+      recipeSep1.className = "classic-style1";
       foodRecipeEl.appendChild(recipeSep1);
 
       let recipeNameEl = document.createElement("h3");
@@ -332,12 +353,25 @@ function renderRecipe(recipeData) {
     }
     recipeInstructionEl.textContent = recipeInstruction;
 
-    recipePageWatchTutorialBtn.style.display = "inline";
-    recipePageRestaurantBtn.style.display = "inline";
+    let recipePageWatchTutorialBtn = document.createElement("button");
+    recipePageWatchTutorialBtn.className = "waves-effect waves-light btn-small recipe-btns";
+    recipePageWatchTutorialBtn.textContent = "Watch Tutorial";
 
-    let recipeSep2 = document.createElement("img")
-    recipeSep2.src = recipeSeparator;
-    foodRecipeEl.appendChild(recipeSep2);
+    let recipePageRestaurantBtn = document.createElement("button");
+    recipePageRestaurantBtn.className = "waves-effect waves-light btn-small recipe-btns";
+    recipePageRestaurantBtn.textContent = "Restaurant";
+
+    let recipeSaveBtn = document.createElement("button");
+    recipeSaveBtn.className = "waves-effect waves-light btn-small recipe-btns";
+    recipeSaveBtn.textContent = "Save Recipe";
+
+    foodRecipeEl.appendChild(recipePageRestaurantBtn);
+    foodRecipeEl.appendChild(recipePageWatchTutorialBtn);
+    foodRecipeEl.appendChild(recipeSaveBtn);
+
+    let recipeSep3 = document.createElement("hr")
+    recipeSep3.className = "classic-style1";
+    foodRecipeEl.appendChild(recipeSep3);
 
     recipePageWatchTutorialBtn.addEventListener('click', () => {
         if (recipeVideoUrl === "") {
@@ -350,6 +384,11 @@ function renderRecipe(recipeData) {
     recipePageRestaurantBtn.addEventListener("click", function() {
          show_restaurant(recipeName);
      });
+
+    recipeSaveBtn.addEventListener("click", function(){
+        addRecipeToLocalStorage(currentRecipe);
+        renderSavedRecipes(historyRecipePageEl);
+    })      
 }
 
 // Displays restaurants list w/ clickable content.
@@ -527,4 +566,57 @@ function generateRandomRecipe () {
     })
  }
 
-//add function when "random recipe" is click, will take user to main page and display random recipe.
+
+// save recipe to local storage
+function addRecipeToLocalStorage(currentRecipe){
+    if (currentRecipe===null || currentRecipe===undefined || currentRecipe==="") {
+        console.log("function addRecipeToLocalStorage expect recipe object as a parameter");
+        return;
+    }
+    let savedRecipes = JSON.parse(localStorage.getItem("recipe-history"));
+    if (savedRecipes === null) {
+        savedRecipes = [];
+    }
+    savedRecipes.push(currentRecipe);
+    localStorage.setItem("recipe-history",JSON.stringify(savedRecipes));
+}
+// Render saved recipes if user has in localStorage saved recipes fom previous sessions
+function renderSavedRecipes(historyEl) {
+    historyEl.innerHTML="";
+    let pageHeader = document.createElement("h3");
+    pageHeader.className = "Saved Recipies";
+    pageHeader.textContent = "Saved recipies";
+    historyEl.appendChild(pageHeader)
+    let savedRecipes = JSON.parse(localStorage.getItem("recipe-history"));
+    if (savedRecipes === null){
+        historyEl.textContent = "No saved recipies found";
+    } 
+
+    for (let i=0; i<savedRecipes.length; i++) {
+
+        let recipeOneEl = document.createElement("div");
+        recipeOneEl.className = "col s2";
+        historyEl.appendChild(recipeOneEl);
+    
+        let recipeCardEl = document.createElement("div");
+        recipeCardEl.className = "card";
+        recipeOneEl.appendChild(recipeCardEl);
+
+        let cardImageDiv = document.createElement("div");
+        cardImageDiv.setAttribute("href", savedRecipes[i].srcUrl);
+        cardImageDiv.className = "is-clickable";
+        recipeCardEl.appendChild(cardImageDiv);
+        
+        let cardImage = document.createElement("img");
+        cardImage.src = savedRecipes[i].imageUrl;
+        cardImage.setAttribute("alt", "image of "+savedRecipes[i].name);
+        recipeCardEl.appendChild(cardImage);
+
+        let cardContentDiv = document.createElement("a");
+        cardContentDiv.className = "card-content saved-recipies";
+        cardContentDiv.setAttribute("href", savedRecipes[i].srcUrl);
+        cardContentDiv.setAttribute("target", "_blank");
+        cardContentDiv.textContent = savedRecipes[i].name;
+        recipeCardEl.appendChild(cardContentDiv);
+    }
+}

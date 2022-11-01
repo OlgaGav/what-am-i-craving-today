@@ -457,7 +457,8 @@ menuRandomRecipe.addEventListener("click", generateRandomRecipe);
 
 
 function recipeSearchContent () {
-    let imageUrl = "assets/images/loader.gif";
+
+    let imageUrl = "./assets/images/loader.gif";
         swal({
         icon: imageUrl,
         buttons: false,
@@ -471,7 +472,7 @@ function recipeSearchContent () {
 
 //add function when "search recipe" is click, will take user to recipe page.
 function restaurantSearchContent () {
-    let imageUrl = "assets/images/Yx9l.gif";
+    let imageUrl = "./assets/images/Yx9l.gif";
     swal({
         icon: imageUrl,
         buttons: false,
@@ -487,7 +488,7 @@ function restaurantSearchContent () {
 
 //add function when "search restaurant" is click, will take user to restaurant page.
 function generateRandomRecipe () {
-    let imageUrl = "assets/images/random-gift.gif";
+    let imageUrl = "./assets/images/random-gift.gif";
     swal({
         icon: imageUrl,
         buttons: false,

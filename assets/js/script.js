@@ -429,9 +429,10 @@ function renderRestaurant(selectRestaurantData) {
 
 function renderRestaurantPage(restaurantData) {
     restaurantInfoEl.innerHTML = "";
-
+    if (restaurantData.length===0){
+        restaurantInfoEl.innerHTML = "No restaurant found by your search. Please try another location or another meal name.";
+    }
     renderRestaurantList(restaurantData);
-
 }
 
 document.addEventListener('DOMContentLoaded', function() {

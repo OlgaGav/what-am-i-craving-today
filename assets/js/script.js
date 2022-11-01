@@ -457,6 +457,7 @@ menuRandomRecipe.addEventListener("click", generateRandomRecipe);
 
 
 function recipeSearchContent () {
+
     let imageUrl = "./assets/images/loader.gif";
         swal({
         icon: imageUrl,

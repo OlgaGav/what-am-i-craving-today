@@ -15,11 +15,14 @@ let recipeInstructionEl = document.getElementById("recipe-instruction");
 let recipePageWatchTutorialBtn = document.getElementById("watch-tutorial-button1");
 let recipePageRestaurantBtn = document.getElementById("restaurant-search-button1");
 let restaurantInfoEl = document.getElementById("restaurant-information");
-let restaurantWebBtn = document.getElementById("official-website-button");
 let restaurantList = document.getElementById("restaurant-list");
 let recipeClearInputBtn = document.getElementById("clear-button-recipe");
 let restaurantClearInputBtn = document.getElementById("clear-button-restaurant");
 let locationInputEl = document.getElementById("location");
+let prevRestaurantClear = document.getElementById("restaurant-clear-button");
+let prevSearches = document.querySelector(".previous-searches");
+let previousRestaurant = document.querySelector("#previous-restaurant");
+let savedRestaurants = JSON.parse(localStorage.getItem("data")) || [];
 
 //edit event listener to input search field
 recipeClearInputBtn.addEventListener("click", function(){
@@ -341,13 +344,37 @@ function renderRestaurantList (data) {
     let restaurantListEl = document.createElement("ul");
     restaurantList.appendChild(restaurantListEl);
     for(let i=0; i < data.length; i++) {
-    let restaurantListLi = document.createElement("li");
-    restaurantListLi.textContent = data[i].name;
-    restaurantListEl.appendChild(restaurantListLi);
-    restaurantListLi.className = "is-clickable";
-    restaurantListLi.onclick = () => renderRestaurant(data[i]);
+        let restaurantListLi = document.createElement("li");
+        restaurantListLi.textContent = data[i].name;
+        restaurantListEl.appendChild(restaurantListLi);
+        restaurantListLi.className = "is-clickable";
+        restaurantListLi.onclick = () => renderRestaurant(data[i]);
+
+        restaurantListLi.addEventListener("click", (event) => {
+            event.preventDefault();
+            renderRestaurant(data[i]);
+            let restaurant = restaurantListLi.textContent;
+            if(savedRestaurants.indexOf(restaurant) == -1) {
+               savedRestaurants.push(restaurant);
+               var storeIt = document.createElement("li");
+               storeIt.textContent = restaurant;
+               document.getElementById("previous-restaurant").appendChild(storeIt);
+               localStorage.setItem("data", JSON.stringify(savedRestaurants));
+            }
+       });
     }
 }
+
+    for(let i=0; i < savedRestaurants.length; i++) {
+        var storeMe = document.createElement("li");
+        storeMe.textContent = savedRestaurants[i];
+        document.getElementById("previous-restaurant").appendChild(storeMe);
+
+    }
+    prevRestaurantClear.addEventListener("click", () => { 
+        localStorage.removeItem("data", savedRestaurants);
+        document.getElementById("previous-restaurant").innerHTML = ' ';
+    });
 
 // Displays restaurants information w/ image, name, address, ratings, service options, and phone number
 function renderRestaurant(selectRestaurantData) {
@@ -375,7 +402,7 @@ function renderRestaurant(selectRestaurantData) {
     restaurantInfoEl.appendChild(restaurantAddressEl);
 
     let restaurantRatingsEl = document.createElement('p');
-    restaurantRatingsEl.textContent = restaurantRatings + " " + "⭐️";
+    restaurantRatingsEl.textContent = restaurantRatings + " " + "stars";
     restaurantInfoEl.appendChild(restaurantRatingsEl);
 
     let restaurantMethodEl = document.createElement('p');
@@ -386,11 +413,18 @@ function renderRestaurant(selectRestaurantData) {
     restaurantPhoneEl.textContent = restaurantPhone;
     restaurantInfoEl.appendChild(restaurantPhoneEl);
 
+    let restaurantBtnEl = document.createElement('button');
+    restaurantBtnEl.textContent = "See Yelp Reviews";
+    restaurantBtnEl.className = "waves-effect waves-light btn-small";
+    restaurantInfoEl.appendChild(restaurantBtnEl);
+
     //add event listener when official website button is clicked, will take user to restaurants official website.
-    restaurantWebBtn.style.display = "inline";
-    restaurantWebBtn.addEventListener("click", () => {
-    websiteOpenUrl(restaurantUrl);
-    })
+    restaurantBtnEl.addEventListener("click", (event) => {
+        event.preventDefault(); 
+
+        websiteOpenUrl(restaurantUrl);
+
+   });
 }
 
 function renderRestaurantPage(restaurantData) {
@@ -400,53 +434,69 @@ function renderRestaurantPage(restaurantData) {
 
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(elems);
+  }); 
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems1 = document.querySelectorAll('.sidenav1');
+    M.Sidenav.init(elems1);
+  }); 
 //menu tab  functions
-let menuIcon = document.querySelector(".menu-hash");
-let menuTab = document.querySelector(".menu-tab");
+
 let menuTabRecipe = document.querySelector("#link-search-recipe");
 let menuTabRestaurant = document.querySelector("#link-search-restaurant");
 let menuRandomRecipe = document.querySelector("#link-random-page");
+let slideOut = document.querySelector("#slide-out");
 
-menuIcon.addEventListener("click", openMenuTab);
+
 menuTabRecipe.addEventListener("click", recipeSearchContent);
 menuTabRestaurant.addEventListener("click", restaurantSearchContent);
 menuRandomRecipe.addEventListener("click", generateRandomRecipe);
 
 
-function openMenuTab () {
-    if(menuTab.style.display === "none") {
-        menuTab.style.display = "block";
-    } else {
-        menuTab.style.display = "none";
-    }
-
-}
+function recipeSearchContent () {
+    let imageUrl = "../images/loader.gif";
+        swal({
+        icon: imageUrl,
+        buttons: false,
+        timer: 2500
+    }).then (() => {
+        document.getElementById("recipe-page").style.display = "block";
+        document.getElementById("beginning-page").style.display = "none";
+        document.getElementById("restaurant-page").style.display = "none";
+    });
+ }
 
 //add function when "search recipe" is click, will take user to recipe page.
-function recipeSearchContent () {
-   
-    document. getElementById("recipe-page").style.display = "block";
-    document. getElementById("beginning-page").style.display = "none";
-    document.getElementById("restaurant-page").style.display = "none";
-    menuTab.style.display = "none";
-
-}
+function restaurantSearchContent () {
+    let imageUrl = "../images/Yx9l.gif";
+    swal({
+        icon: imageUrl,
+        buttons: false,
+        timer: 2500
+    }).then (() => {
+        document.getElementById("restaurant-page").style.display = "block";
+        document.getElementById("recipe-page").style.display = "none";
+        document.getElementById("beginning-page").style.display = "none";
+        document.getElementById("link-random-page").style.display = "block";
+    })
+  
+ }
 
 //add function when "search restaurant" is click, will take user to restaurant page.
-function restaurantSearchContent () {
-
-    document.getElementById("restaurant-page").style.display = "block";
-    document.getElementById("recipe-page").style.display = "none";
-    document.getElementById("beginning-page").style.display = "none";
-    document. getElementById("link-random-page").style.display = "block";
-    menuTab.style.display = "none";
-    
-}
+function generateRandomRecipe () {
+    let imageUrl = "../images/random-gift.gif";
+    swal({
+        icon: imageUrl,
+        buttons: false,
+        timer: 3000
+    }).then (() => {
+        document.getElementById("beginning-page").style.display = "block";
+        document.getElementById("recipe-page").style.display = "none";
+        window.location.reload(true);
+    })
+ }
 
 //add function when "random recipe" is click, will take user to main page and display random recipe.
-function generateRandomRecipe () {
-    
-    document. getElementById("beginning-page").style.display = "block";
-    document. getElementById("recipe-page").style.display = "none";
-    window.location.reload(true);
-}

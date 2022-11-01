@@ -421,6 +421,7 @@ function renderRestaurantList (data) {
     for(let i=0; i < savedRestaurants.length; i++) {
         var storeMe = document.createElement("li");
         storeMe.textContent = savedRestaurants[i];
+        storeMe.className = "is-clickable";
         document.getElementById("previous-restaurant").appendChild(storeMe);
 
     }
@@ -573,9 +574,15 @@ function addRecipeToLocalStorage(currentRecipe){
         console.log("function addRecipeToLocalStorage expect recipe object as a parameter");
         return;
     }
-    let savedRecipes = JSON.parse(localStorage.getItem("recipe-history"));
-    if (savedRecipes === null) {
-        savedRecipes = [];
+    let savedRecipes = JSON.parse(localStorage.getItem("recipe-history")) || [];
+    // if (savedRecipes === null) {
+    //     savedRecipes = [];
+    // }
+
+    for (let j=0; j<savedRecipes.length; j++) {
+        if (savedRecipes[j].name === currentRecipe.name) {
+            return;
+        }
     }
     savedRecipes.push(currentRecipe);
     localStorage.setItem("recipe-history",JSON.stringify(savedRecipes));
@@ -583,14 +590,14 @@ function addRecipeToLocalStorage(currentRecipe){
 // Render saved recipes if user has in localStorage saved recipes fom previous sessions
 function renderSavedRecipes(historyEl) {
     historyEl.innerHTML="";
+    let savedRecipes = JSON.parse(localStorage.getItem("recipe-history"));
+    if (savedRecipes === null){
+      return;
+    }
     let pageHeader = document.createElement("h3");
     pageHeader.className = "Saved Recipies";
     pageHeader.textContent = "Saved recipies";
-    historyEl.appendChild(pageHeader)
-    let savedRecipes = JSON.parse(localStorage.getItem("recipe-history"));
-    if (savedRecipes === null){
-        historyEl.textContent = "No saved recipies found";
-    } 
+    historyEl.appendChild(pageHeader); 
 
     for (let i=0; i<savedRecipes.length; i++) {
 

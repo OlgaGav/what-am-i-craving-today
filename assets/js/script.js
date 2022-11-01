@@ -194,8 +194,9 @@ function getRestaurantsByUserLocation(searchValue) {
       let parameters = "&term="+searchValue+"&latitude="+lat+"&longitude="+lon;
       getRestaurantsWithParameters(parameters);
       });
-    } else { 
+    } else  { 
       console.log("Geolocation is not supported by this browser.");
+      
     }
 }
 
@@ -381,7 +382,8 @@ function renderRestaurant(selectRestaurantData) {
     restaurantInfoEl.innerHTML = "";
     let restaurantName = selectRestaurantData.name;
     let restaurantImg = selectRestaurantData.image_url;
-    let restaurantAddress = selectRestaurantData.location.display_address;
+    let restaurantAddress = selectRestaurantData.location.display_address[0];
+    let restaurantAddress1 = selectRestaurantData.location.display_address[1];
     let restaurantMethod = selectRestaurantData.transactions;
     let restaurantRatings = selectRestaurantData.rating;
     let restaurantPhone = selectRestaurantData.display_phone;
@@ -400,6 +402,10 @@ function renderRestaurant(selectRestaurantData) {
     let restaurantAddressEl = document.createElement('p');
     restaurantAddressEl.textContent = restaurantAddress;
     restaurantInfoEl.appendChild(restaurantAddressEl);
+
+    let restaurantAddressEl1 = document.createElement('p');
+    restaurantAddressEl1.textContent = restaurantAddress1;
+    restaurantInfoEl.appendChild(restaurantAddressEl1);
 
     let restaurantRatingsEl = document.createElement('p');
     restaurantRatingsEl.textContent = restaurantRatings + " " + "stars";
@@ -457,7 +463,7 @@ menuRandomRecipe.addEventListener("click", generateRandomRecipe);
 
 
 function recipeSearchContent () {
-    let imageUrl = "../images/loader.gif";
+    let imageUrl = "./assets/images/loader.gif";
         swal({
         icon: imageUrl,
         buttons: false,
@@ -471,7 +477,7 @@ function recipeSearchContent () {
 
 //add function when "search recipe" is click, will take user to recipe page.
 function restaurantSearchContent () {
-    let imageUrl = "../images/Yx9l.gif";
+    let imageUrl = "./assets/images/Yx9l.gif";
     swal({
         icon: imageUrl,
         buttons: false,
@@ -487,7 +493,7 @@ function restaurantSearchContent () {
 
 //add function when "search restaurant" is click, will take user to restaurant page.
 function generateRandomRecipe () {
-    let imageUrl = "../images/random-gift.gif";
+    let imageUrl = "./assets/images/random-gift.gif";
     swal({
         icon: imageUrl,
         buttons: false,

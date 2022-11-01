@@ -94,13 +94,13 @@
           <button id="clear-button-restaurant" class="waves-effect waves-light btn-small">Clear</button>
           <button id="clear-button-restaurant" class="waves-effect waves-light btn-small sidenav-trigger" href="#" data-target="slide-out1">Restaurant Searched History</button>
           <br>
-          <p id="location-alert">To find restaurants near by we are going to ask for your location. If that is OK with you, press Allow in the dialogue that will pop up in your browser. Otherwise please enter city name below.</p>
-          <div class="input-field inline col s6">
-            <input id="location" type="text">
-            <label for="location">Enter the city name</label>
+          <p id="location-alert" >To find restaurants near by we are going to ask for your location. If that is OK with you, press Allow in the dialogue that will pop up in your browser. Otherwise please enter city name below.</p>
+          <div class="input-field col offset-s4 s4 row" id="no-location-search">
+            <span class="helper-text" data-error="wrong" data-success="right" style="font-size: 15px;"><strong>Enter City Name:</strong></span>
+            <input id="location" type="text" style="text-align:center">
             <span class="helper-text" data-error="wrong" data-success="right">Please specify the city to search restaurant</span>
+            <div id="restaurant-list"></div>
           </div>
-          <section id="restaurant-list"></section>
         
           <section id="restaurant-information"></section>
           

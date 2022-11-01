@@ -50,7 +50,7 @@ img {
 hr.classic-style {
     border: 0;
     height: 4em;
-    background-image:  url(./assets/images/menu-separator1.png);
+    background-image:  url(../images/menu-separator1.png);
     background-position: center;
     background-color: transparent;
     background-size: cover;
@@ -60,7 +60,7 @@ hr.classic-style1 {
     border: 0;
     height: 3em;
     margin-top: 2em;
-    background-image:  url(./assets/images/menu-separator1.png);
+    background-image:  url(../images/menu-separator1.png);
     background-position: center;
     background-color: transparent;
     background-repeat: no-repeat ;

@@ -457,45 +457,45 @@ menuRandomRecipe.addEventListener("click", generateRandomRecipe);
 
 
 function recipeSearchContent () {
-    let imageUrl = "./assets/images/loader.gif";
+    let imageUrl = "../images/loader.gif";
         swal({
-            icon: imageUrl,
-          buttons: false,
-          timer: 2500
+        icon: imageUrl,
+        buttons: false,
+        timer: 2500
     }).then (() => {
-    document. getElementById("recipe-page").style.display = "block";
-    document. getElementById("beginning-page").style.display = "none";
-    document.getElementById("restaurant-page").style.display = "none";
+        document. getElementById("recipe-page").style.display = "block";
+        document. getElementById("beginning-page").style.display = "none";
+        document.getElementById("restaurant-page").style.display = "none";
     });
  }
 
 //add function when "search recipe" is click, will take user to recipe page.
 function restaurantSearchContent () {
-    let imageUrl = "./assets/images/Yx9l.gif";
+    let imageUrl = "../images/Yx9l.gif";
     swal({
         icon: imageUrl,
         buttons: false,
         timer: 2500
     }).then (() => {
-    document.getElementById("restaurant-page").style.display = "block";
-    document.getElementById("recipe-page").style.display = "none";
-    document.getElementById("beginning-page").style.display = "none";
-    document.getElementById("link-random-page").style.display = "block";
+        document.getElementById("restaurant-page").style.display = "block";
+        document.getElementById("recipe-page").style.display = "none";
+        document.getElementById("beginning-page").style.display = "none";
+        document.getElementById("link-random-page").style.display = "block";
     })
   
  }
 
 //add function when "search restaurant" is click, will take user to restaurant page.
 function generateRandomRecipe () {
-    let imageUrl = "./assets/images/random-gift.gif";
+    let imageUrl = "../images/random-gift.gif";
     swal({
         icon: imageUrl,
         buttons: false,
         timer: 3000
     }).then (() => {
-    document. getElementById("beginning-page").style.display = "block";
-    document. getElementById("recipe-page").style.display = "none";
-    window.location.reload(true);
+        document. getElementById("beginning-page").style.display = "block";
+        document. getElementById("recipe-page").style.display = "none";
+        window.location.reload(true);
     })
  }
 

@@ -13,10 +13,7 @@ This webpage contains a landing page where we implemented generating random imag
 2. Search recipe 
 Searching recipe include sections for food list, recipe list, and recipe instruction.
 Inside the recipe list section, there are two buttons: 1) Restaurant 2) Watch tutorial.
-
 The restaurant button will re-direct user to "Search restaurant" page to find a nearby restaurants, and the watch tutorial buttton will re-direct user to watch tutorial on youtube.
-
-::restaurant button is not working?::
 
 3. Search restaurant
 User can search restraunts nearby including its address, customer review, type of service and external page link to the yelp page. 

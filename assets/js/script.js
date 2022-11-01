@@ -463,8 +463,8 @@ function recipeSearchContent () {
         buttons: false,
         timer: 2500
     }).then (() => {
-        document. getElementById("recipe-page").style.display = "block";
-        document. getElementById("beginning-page").style.display = "none";
+        document.getElementById("recipe-page").style.display = "block";
+        document.getElementById("beginning-page").style.display = "none";
         document.getElementById("restaurant-page").style.display = "none";
     });
  }
@@ -493,8 +493,8 @@ function generateRandomRecipe () {
         buttons: false,
         timer: 3000
     }).then (() => {
-        document. getElementById("beginning-page").style.display = "block";
-        document. getElementById("recipe-page").style.display = "none";
+        document.getElementById("beginning-page").style.display = "block";
+        document.getElementById("recipe-page").style.display = "none";
         window.location.reload(true);
     })
  }

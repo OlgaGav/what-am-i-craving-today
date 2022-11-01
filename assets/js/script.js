@@ -10,12 +10,14 @@ let randomRecipeWatchTutorialBtn = document.getElementById("watch-tutorial-butto
 let searchRecipeInput = document.getElementById("search-recipe");
 let searchRecipeBtn = document.getElementById("submit-button-recipe");
 let foodList = document.getElementById("food-list");
+let foodImageE = document.getElementById("food-image");
 let foodRecipeEl = document.getElementById("food-recipe");
 let recipeInstructionEl = document.getElementById("recipe-instruction");
 let recipePageWatchTutorialBtn = document.getElementById("watch-tutorial-button1");
 let recipePageRestaurantBtn = document.getElementById("restaurant-search-button1");
 let restaurantInfoEl = document.getElementById("restaurant-information");
 let restaurantList = document.getElementById("restaurant-list");
+let restaurantImage = document.getElementById("restaurant-image");
 let recipeClearInputBtn = document.getElementById("clear-button-recipe");
 let restaurantClearInputBtn = document.getElementById("clear-button-restaurant");
 let locationInputEl = document.getElementById("location");
@@ -285,6 +287,7 @@ function renderRecipe(recipeData) {
     let recipeName = recipeData.strMeal;
     let recipeIngredientsArray = [];
     let recipeIngredientsMeasuresArray = [];
+    let recipeSeparator = "./assets/images/menu-separator1.png";
     let recipeInstruction = recipeData.strInstructions;
     let recipeImageUrl = recipeData.strMealThumb;
     let recipeVideoUrl = recipeData.strYoutube;
@@ -303,15 +306,21 @@ function renderRecipe(recipeData) {
          }
          recipeIngredientsMeasuresArray[i] = value;
       }
-    let recipeNameEl = document.createElement("h3");
-    recipeNameEl.textContent = recipeName;
-    foodRecipeEl.appendChild(recipeNameEl);
 
-    // add image of the meal
-    let imageEl = document.createElement("img");
-    imageEl.src = recipeImageUrl;
-    imageEl.setAttribute("alt", "image of "+recipeName);
-    foodRecipeEl.appendChild(imageEl);
+      let recipeSep1 = document.createElement("img")
+      recipeSep1.src = recipeSeparator;
+      foodRecipeEl.appendChild(recipeSep1);
+
+      let recipeNameEl = document.createElement("h3");
+      recipeNameEl.textContent = recipeName;
+      foodRecipeEl.appendChild(recipeNameEl);
+
+      // add image of the meal
+      let imageEl = document.createElement("img");
+      imageEl.src = recipeImageUrl;
+      imageEl.setAttribute("alt", "image of "+recipeName);
+      foodRecipeEl.appendChild(imageEl);
+
 
     let recipeIngrsList = document.createElement("ul");
     foodRecipeEl.appendChild(recipeIngrsList);
@@ -325,6 +334,10 @@ function renderRecipe(recipeData) {
 
     recipePageWatchTutorialBtn.style.display = "inline";
     recipePageRestaurantBtn.style.display = "inline";
+
+    let recipeSep2 = document.createElement("img")
+    recipeSep2.src = recipeSeparator;
+    foodRecipeEl.appendChild(recipeSep2);
 
     recipePageWatchTutorialBtn.addEventListener('click', () => {
         if (recipeVideoUrl === "") {
@@ -381,6 +394,7 @@ function renderRestaurantList (data) {
 function renderRestaurant(selectRestaurantData) {
     restaurantInfoEl.innerHTML = "";
     let restaurantName = selectRestaurantData.name;
+    let restaurantSeparator = "./assets/images/menu-separator1.png";
     let restaurantImg = selectRestaurantData.image_url;
     let restaurantAddress = selectRestaurantData.location.display_address[0];
     let restaurantAddress1 = selectRestaurantData.location.display_address[1];
@@ -389,6 +403,9 @@ function renderRestaurant(selectRestaurantData) {
     let restaurantPhone = selectRestaurantData.display_phone;
     let restaurantUrl = selectRestaurantData.url;
 
+    let restaurantSep1 = document.createElement("img");
+    restaurantSep1.src = restaurantSeparator;
+    restaurantInfoEl.appendChild(restaurantSep1);
 
     let restaurantImageEl = document.createElement("img");
     restaurantImageEl.src = restaurantImg;
@@ -419,8 +436,12 @@ function renderRestaurant(selectRestaurantData) {
     restaurantPhoneEl.textContent = restaurantPhone;
     restaurantInfoEl.appendChild(restaurantPhoneEl);
 
+    let restaurantSep2 = document.createElement("img");
+    restaurantSep2.src = restaurantSeparator;
+    restaurantInfoEl.appendChild(restaurantSep2);
+
     let restaurantBtnEl = document.createElement('button');
-    restaurantBtnEl.textContent = "See Yelp Reviews";
+    restaurantBtnEl.textContent = "Yelp Website";
     restaurantBtnEl.className = "waves-effect waves-light btn-small";
     restaurantInfoEl.appendChild(restaurantBtnEl);
 
@@ -464,7 +485,7 @@ menuRandomRecipe.addEventListener("click", generateRandomRecipe);
 
 
 function recipeSearchContent () {
-    let imageUrl = "../images/loader.gif";
+    let imageUrl = "./assets/images/loader.gif";
         swal({
         icon: imageUrl,
         buttons: false,
@@ -478,7 +499,7 @@ function recipeSearchContent () {
 
 //add function when "search recipe" is click, will take user to recipe page.
 function restaurantSearchContent () {
-    let imageUrl = "../images/Yx9l.gif";
+    let imageUrl = "./assets/images/Yx9l.gif";
     swal({
         icon: imageUrl,
         buttons: false,
@@ -494,7 +515,7 @@ function restaurantSearchContent () {
 
 //add function when "search restaurant" is click, will take user to restaurant page.
 function generateRandomRecipe () {
-    let imageUrl = "../images/random-gift.gif";
+    let imageUrl = "./assets/images/random-gift.gif";
     swal({
         icon: imageUrl,
         buttons: false,

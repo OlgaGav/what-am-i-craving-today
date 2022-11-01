@@ -209,7 +209,8 @@ p {
 }
 
 
-#random-recipe {
+#random-recipe,
+#food-recipe {
     display: inline-block;
     font-size: 15px;
     font-family: fantasy;
@@ -234,7 +235,6 @@ p {
     width: 80%;
     height: 90%;
     margin: auto;
-    font-family: fantasy;
 }
 
 #restaurant-list {
@@ -297,3 +297,15 @@ p {
     cursor: pointer !important;
     pointer-events: all !important;
   }
+  /* apply style for buttons on Search recipe page */
+.recipe-btns {
+    margin: 2rem 0.5rem 0 0.5rem;
+}
+/* saved recipes name style */
+.saved-recipies {
+    font-family: fantasy;
+    font-size: 1rem;
+    font-style: none;
+    font-weight: 300;
+    color: black;
+}

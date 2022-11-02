@@ -1,34 +1,35 @@
 # What are we craving today?
 
 ## Introduction
-This Webpage we created is design for everyday user who likes to explore food that they havent tasted before and as well as recreate food with given instruction and recipes. This webpage help everyday user to search for food recipes and how to make it, as well as searching for restaurants locations. We also implemented giving user a choice to generate a random recipe instead for searching for them, giving the experience to try out new food. 
 
+The Webpage that we have created is designed for an everyday use. this page will be a tool for users who like to explore food that they havent tasted before, and will also allow the user to recreate food with given instructions and recipes. This webpage helps everyday users to search for food recipes and how to make it, as well as searching for restaurants locations. We also implemented giving user a choice to generate a random recipe instead for searching for them, giving the experience to try out new food.
 
 ## Description
+
 The webpage is structured as below, with menu bar to help easy navigations.
 Inside the Menu bar will include the sections below:
 
 1. Random recipe
-This webpage contains a landing page where we implemented generating random image and random recipes and will continue generating different ones whenever user reloads the page.
+   This webpage contains a landing page where we implemented generating random image and random recipes and will continue generating different ones whenever user reloads the page.
 
 2. Search recipe 
 Searching recipe include sections for food list, recipe list, and recipe instruction.
-This page also includes a section for saving previous recipe searches at the bottom of the page.
 Inside the recipe list section, there are two buttons: 1) Restaurant 2) Watch tutorial.
 
  - The restaurant button will re-direct user to "Search restaurant" page to find a nearby restaurants. 
  - Watch tutorial buttton will re-direct user to watch tutorial on youtube.
 
 3. Search restaurant
-User can search restraunts nearby including its address, customer review, type of service and external page link to the yelp page. 
-From the "Restaurant searched history" button, user can check the previous search history.
+   User can search restraunts nearby including its address, customer review, type of service and external page link to the yelp page.
+   From the "Restaurant searched history" button, user can check the previous search history.
 
 4. Remark
 Both Search Recipe and Search Restaurant include a search bar, search button, and clear button. 
  
 
 ### 'Search Restaurant' page
-Current version allow search of restaurants based on the user location, around ~ 2.5 miles (4km). 
+
+Current version allow search of restaurants based on the user location, around ~ 2.5 miles (4km).
 
 **Note:** Getting user physical location comes under user privacy. HTML5 Geolocation API will always grant permission from the user to check geolocation. If a user allows, geolocation will work, else geolocation will be blocked.
 

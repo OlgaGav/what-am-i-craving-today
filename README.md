@@ -14,7 +14,10 @@ Inside the Menu bar will include the sections below:
 
 2. Search recipe 
 Searching recipe include sections for food list, recipe list, and recipe instruction.
-Inside the recipe list section, there are two buttons: 1) Restaurant 2) Watch tutorial.
+Inside the recipe list section, there are buttons: 
+   - Restaurant 
+   - Watch tutorial
+   - Save recipe
 
  - The restaurant button will re-direct user to "Search restaurant" page to find a nearby restaurants. 
  - Watch tutorial buttton will re-direct user to watch tutorial on youtube.
@@ -33,9 +36,9 @@ Current version allow search of restaurants based on the user location, around ~
 
 **Note:** Getting user physical location comes under user privacy. HTML5 Geolocation API will always grant permission from the user to check geolocation. If a user allows, geolocation will work, else geolocation will be blocked.
 
-![Screenshot of the notification which request user to allow acess to location.]
+![Screenshot of the notification which request user to allow acess to location.](assets/images/access-location-request-window.png)
 
-<img src="./assets/images/access-location-request-window.png />
+If you prefer do not share the location, enter the city name where you want to search restaurants.
 
 
 ## URL
@@ -47,13 +50,13 @@ Current version allow search of restaurants based on the user location, around ~
 ## Screenshots
 
 **Landing page**
-<img src="./assets/images/website-screenshot1.png />
+![landing page show random recipe "Pumpkin pie"](assets/images/website-screenshot1.png)
 
 **Recipe Page**
-<img src="./assets/images/recipe-page.png />
+![Search recipe page shows list of recipes and selected 'Kentucky Fried Chicken' recipe](assets/images/recipe-page.png)
 
 **Restaraunt Page**
-<img src="./assets/images/restaurant-page.png />
+![Search restaurant page shows list of restaurants and selected 'Sushi Hook' restaurant](assets/images/restaurant-page.png)
 
 ## Credits
 

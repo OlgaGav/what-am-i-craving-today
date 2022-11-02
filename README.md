@@ -1,4 +1,4 @@
-# What are you craving today?
+# What are we craving today?
 
 ## Introduction
 This Webpage we created is design for everyday user who likes to explore food that they havent tasted before and as well as recreate food with given instruction and recipes. This webpage help everyday user to search for food recipes and how to make it, as well as searching for restaurants locations. We also implemented giving user a choice to generate a random recipe instead for searching for them, giving the experience to try out new food. 
@@ -6,17 +6,18 @@ This Webpage we created is design for everyday user who likes to explore food th
 
 ## Description
 The webpage is structured as below, with menu bar to help easy navigations.
+Inside the Menu bar will include the sections below:
 
 1. Random recipe
 This webpage contains a landing page where we implemented generating random image and random recipes and will continue generating different ones whenever user reloads the page.
 
 2. Search recipe 
 Searching recipe include sections for food list, recipe list, and recipe instruction.
+This page also includes a section for saving previous recipe searches at the bottom of the page.
 Inside the recipe list section, there are two buttons: 1) Restaurant 2) Watch tutorial.
 
-The restaurant button will re-direct user to "Search restaurant" page to find a nearby restaurants, and the watch tutorial buttton will re-direct user to watch tutorial on youtube.
-
-::restaurant button is not working?::
+ - The restaurant button will re-direct user to "Search restaurant" page to find a nearby restaurants. 
+ - Watch tutorial buttton will re-direct user to watch tutorial on youtube.
 
 3. Search restaurant
 User can search restraunts nearby including its address, customer review, type of service and external page link to the yelp page. 
@@ -31,26 +32,31 @@ Current version allow search of restaurants based on the user location, around ~
 
 **Note:** Getting user physical location comes under user privacy. HTML5 Geolocation API will always grant permission from the user to check geolocation. If a user allows, geolocation will work, else geolocation will be blocked.
 
-![Sceenshot of the notification which request user to allow acess to location.](assets\images\access-location-request-window.png)
+![Screenshot of the notification which request user to allow acess to location.]
+
+<img src="./assets/images/access-location-request-window.png />
+
 
 ## URL
 
 **Deployed application:** https://olgagav.github.io/what-am-i-craving-today/
+
 **GitHb Respository:** https://github.com/OlgaGav/what-am-i-craving-today
 
 ## Screenshots
 
-<img src="./images/landing-page.png />
+<img src="./assets/images/website-screenshot1.png />
+
 
 ## Credits
 
-Robert Wijtman (Instructor), Bootcamp Modules, w3schools.com, stackoverflow.com, Bulma, Yelp, YouTube, JP Padilla, Minjoo Park, Olga Gavrushenko, Yesica Ortiz, Jose Ruiz.
+Robert Wijtman (Instructor), Bootcamp Modules, w3schools.com, stackoverflow.com, Bulma, Materialize, Yelp, YouTube, JP Padilla, Minjoo Park, Olga Gavrushenko, Yesica Ortiz.
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 JP Padilla, Minjoo Park, Olga Gavrushenko, Yesica Ortiz, Jose Ruiz
+Copyright (c) 2022 JP Padilla, Minjoo Park, Olga Gavrushenko, Yesica Ortiz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

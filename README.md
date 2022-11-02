@@ -45,8 +45,14 @@ Current version allow search of restaurants based on the user location, around ~
 
 ## Screenshots
 
+**Landing page**
 <img src="./assets/images/website-screenshot1.png />
 
+**Recipe Page**
+<img src="./assets/images/recipe-page.png />
+
+**Restaraunt Page**
+<img src="./assets/images/restaurant-page.png />
 
 ## Credits
 
